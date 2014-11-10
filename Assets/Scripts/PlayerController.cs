@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
 		setSteerAngle(steer * steerAngle);
 		setTorque(motorTorque * motor);
 		setBrake(brake * brakeTorque);
-
+		Debug.Log(rigidbody.velocity.sqrMagnitude);
 		audio.pitch = 1 + (forwardWheels[forwardWheels.Count-1].motorTorque) / motorTorque;
 	}
 
