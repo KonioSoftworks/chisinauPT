@@ -1375,9 +1375,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1744291602}
   - 95: {fileID: 1744291603}
-  - 114: {fileID: 1744291604}
   - 54: {fileID: 1744291605}
   - 82: {fileID: 1744291606}
+  - 114: {fileID: 1744291604}
   m_Layer: 0
   m_Name: Rutiera
   m_TagString: Player
@@ -1419,9 +1419,8 @@ Animator:
 --- !u!114 &1744291604
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 6af15357b90aba5458c9fd2a1bb32d62,
-    type: 2}
-  m_PrefabInternal: {fileID: 1849520912}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1744291601}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1432,12 +1431,19 @@ MonoBehaviour:
   - {fileID: 1307093914}
   - {fileID: 1587446902}
   backWheels:
-  - {fileID: 1231783013}
   - {fileID: 1479888615}
-  motorTorque: 30
-  steerAngle: 10
-  brakeTorque: 100
-  maxSpeed: 50
+  - {fileID: 1231783013}
+  GearRatios:
+  - 5.05299997
+  - 2.60100007
+  - 1.52100003
+  - 1
+  - .783999979
+  axleRatio: 4.375
+  minRpm: 1000
+  maxRpm: 3000
+  wheelRadius: .379999995
+  hp: 130
 --- !u!54 &1744291605
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1447,7 +1453,7 @@ Rigidbody:
   m_GameObject: {fileID: 1744291601}
   serializedVersion: 2
   m_Mass: 2300
-  m_Drag: .0900000036
+  m_Drag: .100000001
   m_AngularDrag: .150000006
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -1548,6 +1554,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 11400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
+      propertyPath: r1.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
       propertyPath: gears.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -1613,9 +1623,34 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
       propertyPath: m_Drag
-      value: .0900000036
+      value: .100000001
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
+      propertyPath: r1.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
+      propertyPath: r1.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
+      propertyPath: r1.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
+      propertyPath: r1.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
+      propertyPath: r1.Array.data[4]
+      value: .699999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
   m_RootGameObject: {fileID: 1744291601}
   m_IsPrefabParent: 0
