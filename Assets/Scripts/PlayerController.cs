@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour {
 		gear = 0;
 	}
 
-	void FixedUpdate() {
+	void Update() {
 		int x = 0;
 
 		float gas = 1;
@@ -61,15 +61,13 @@ public class PlayerController : MonoBehaviour {
 
 		if(Input.GetKeyDown("left")){
 			x--;
-			if(!pressed)				
-				move (x);
+			move (x);
 			pressed = true;
 
 		}
 		if(Input.GetKeyDown("right")){
-			x++;
-			if(!pressed)				
-				move (x);
+			x++;				
+			move (x);
 			pressed = true;
 
 		}
@@ -87,6 +85,8 @@ public class PlayerController : MonoBehaviour {
 		Vector3 newPos = new Vector3(positions[band],transform.position.y,transform.position.z);
 		transform.position = newPos;
 	}
+
+
 
 	public float getVelocity() {
 		return 0.06f*rpm/(axleRatio*GearRatios[gear]);
