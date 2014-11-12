@@ -25,10 +25,16 @@ public class PlayerController : MonoBehaviour {
 	private int gear;
 
 	private int band = 3;
+	private int previousBand = 0;
 
 	private bool pressed = false;
 
 	private float[] positions = new float[]{-5f,-1.8f,1.8f,5f};
+
+	private float pase;
+	private float delta = 1f;
+
+	private bool isMoving = false;
 
 	void Start() {
 		rpm = minRpm;
@@ -36,6 +42,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update() {
+		if (isMoving)
+						smoothMove ();
 		int x = 0;
 
 		float gas = 1;
@@ -75,16 +83,53 @@ public class PlayerController : MonoBehaviour {
 			pressed = false;
 		rigidbody.velocity = new Vector3(0,0,getVelocity());
 		audio.pitch = getPitch();
-		//Debug.Log("RPM = "+rpm+" - Torque = "+getVelocity() + " speed " + rigidbody.velocity.sqrMagnitude + " gear = " + gear );
+		//Debug.Log("RPM = "+rpm+" - Velocity = "+getVelocity() + " gear " + gear );
 
 	}
 
 	public void move(int x) {
-		if((band < 3 && x > 0) || (band > 0 && x < 0))
-			band = band + x;
-		Vector3 newPos = new Vector3(positions[band],transform.position.y,transform.position.z);
-		transform.position = newPos;
+		isMoving = true;
+		if ((band < 3 && x > 0) || (band > 0 && x < 0)) {
+			previousBand = band;
+			band = band + x;	
+		}
 	}
+
+	public void smoothMove(){
+		float[] newPositions = new float[]{0f,3.2f,6.8f,10f};
+		float x = transform.position.x;
+		float units = getVelocity()/200f; //kakaita huinea ! do not change this number
+		float k = (band > previousBand) ? 1 : -1;
+		float radius = getVelocity()/40f;
+		if (k > 0) {
+			float mediumX = (newPositions[band] + newPositions[previousBand])/2f;
+			if (x - positions[0] < mediumX)
+				transform.Rotate (Vector3.up, 1 * radius);
+			else{
+				transform.Rotate (Vector3.up, -1 * radius);
+			}
+		} 
+
+		else {
+			float mediumX = (newPositions[previousBand] + newPositions[band])/2f;	
+			if (x - positions[0] < mediumX)
+				transform.Rotate (Vector3.up, 1 * radius);
+			else
+				transform.Rotate (Vector3.up, -1 * radius);
+		}
+		x += ((x < positions[band]) ? 1f  : -1f) * units;
+		Vector3 newPos = new Vector3 (x, transform.position.y, transform.position.z);
+		transform.position = newPos;
+
+		if (Mathf.Abs (x - positions [band]) < units) {
+			Vector3 Pos = new Vector3 (positions[band], transform.position.y, transform.position.z);
+			transform.position = Pos;
+			transform.rotation = new Quaternion(0,0,0,0);
+			isMoving = false;
+		}
+	}
+
+
 
 
 
