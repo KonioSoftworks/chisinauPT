@@ -16,9 +16,21 @@ public class CameraController : MonoBehaviour {
 
 	private float distance = 0f;
 
+	public GameObject sun;
+
+	public List<GameObject> availableBuildings;
+
+	private List<GameObject> buildings;
+
+	private float leftDistance = 0f;
+	private float rightDistance = 0f;
+	private float roadDistance = 12f;
 	void Start () {
 		tiles = new List<GameObject>();
+		buildings = new List<GameObject>();
 		GameObject Road = GameObject.FindGameObjectWithTag("Road");
+
+		//render road tiles
 		for(int i=0;i<tileRendered;i++){
 			Vector3 newPosition = new Vector3(tile.transform.position.x,tile.transform.position.y,
 			                                  distance);
@@ -26,15 +38,18 @@ public class CameraController : MonoBehaviour {
 			tiles.Add((GameObject)Instantiate(tile,newPosition,tile.transform.rotation));
 			tiles[i].transform.parent = Road.transform;
 		}
+
+		renderBuildings();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		// move camera
+		// move camera and sun xD
 		var car = GameObject.FindGameObjectWithTag("Player");
 		Vector3 carV = car.transform.position;
 		Vector3 camV = transform.position;
 		transform.position = new Vector3(camV.x,camV.y,carV.z - carDistance);
+		sun.transform.position = new Vector3(sun.transform.position.x,sun.transform.position.y,carV.z - carDistance);
 
 		// moving tiles
 		for(int i=0;i < tiles.Count;i++){
@@ -46,7 +61,30 @@ public class CameraController : MonoBehaviour {
 				distance += distanceBetweenTiles;
 			}
 		}
+		renderBuildings();
 	}
 
+	void renderBuildings() {
+		const float hz = 10f;
+		for(int i=0;i < buildings.Count;i++) {
+			if(buildings[i].transform.position.z + hz < transform.position.z){
+				Destroy(buildings[i]);
+				buildings.RemoveAt(i);
+			}
+		}
+
+		renderSide(ref leftDistance,-1);
+		renderSide(ref rightDistance,1);
+	}
+
+	void renderSide(ref float sideDistance,int pos){
+		while(sideDistance <= distance){
+			GameObject obj = availableBuildings[Random.Range(0,availableBuildings.Count)];
+			BuildingController objController = (BuildingController) obj.GetComponent(typeof(BuildingController));
+			Vector3 position = new Vector3(pos*roadDistance+(pos*objController.distanceFromRoad),objController.heightFromRoad,sideDistance);
+			buildings.Add((GameObject)Instantiate(obj,position,obj.transform.rotation));
+			sideDistance += objController.distanceFromOthers + Random.Range(0,10);
+		}
+	}
 
 }

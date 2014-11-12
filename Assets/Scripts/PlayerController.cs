@@ -4,11 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
-
-	public List<WheelCollider> forwardWheels;
-
-	public List<WheelCollider> backWheels;
-
 	//new phisics
 
 	public List<float> GearRatios;
@@ -23,15 +18,17 @@ public class PlayerController : MonoBehaviour {
 
 	public float hp;
 
+	public float converterRatio = 3f;
+
 	private float rpm;
 
 	private int gear;
 
-	private float converterRatio = 5f;
+	private int band = 3;
 
-	public float steerAngle = 10f;
+	private bool pressed = false;
 
-	public float brakeTorque = 50f;
+	private float[] positions = new float[]{-5f,-1.8f,1.8f,5f};
 
 	void Start() {
 		rpm = minRpm;
@@ -39,84 +36,63 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		float steer = Mathf.Clamp(Input.GetAxis("Horizontal"), -1, 1);
-		float gas = Mathf.Clamp(Input.GetAxis("Vertical"), 0, 1);
+		int x = 0;
+
+		float gas = 1;
 		float brake = -1 * Mathf.Clamp(Input.GetAxis("Vertical"), -1, 0);
 
-		if(gas == 0){
-			rpm -= Time.deltaTime * hp;
+		if(brake != 0){
+			rpm -= Time.deltaTime * 2300f;
 			rpm = Mathf.Max (minRpm,rpm);
-		} else {
-			rpm += Time.deltaTime * hp * gas * 4;
+		}
+
+		if(gas == 1 && brake == 0){
+			rpm += Time.deltaTime * hp * gas * 6f;
 			rpm = Mathf.Min (maxRpm,rpm);
 		}
 		if(rpm == maxRpm && gear < GearRatios.Count-1){
-			rpm = minRpm;
+			rpm = minRpm+1f;
 			gear++;
 		}
 		if(rpm == minRpm && gear > 0){
-			rpm = maxRpm;
+			rpm = maxRpm-1f;
 			gear--;
 		}
-		setTorque(getTorque());
-		setSteerAngle(steer*steerAngle);
-		setBrake(brake*brakeTorque);
-		//Debug.Log (Time.deltaTime);
-		Debug.Log("RPM = "+rpm+" - Torque = "+getTorque() + " speed " + rigidbody.velocity.sqrMagnitude + " gear = " + gear );
-	}
 
-	public float getTorque() {
-		return rpm/(axleRatio*GearRatios[gear]*converterRatio);
-	}
+		if(Input.GetKeyDown("left")){
+			x--;
+			if(!pressed)				
+				move (x);
+			pressed = true;
 
-	/*
-
-	public float motorTorque = 30f;
-
-	public float steerAngle = 10f;
-
-	public float brakeTorque = 50f;
-
-	public float maxSpeed = 50f;
-
-	public float maxSqrMagnitude = 1600f;
-
-	// Update is called once per frame
-	void FixedUpdate () {
-
-		float steer = Mathf.Clamp(Input.GetAxis("Horizontal"), -1, 1);
-		float motor = Mathf.Clamp(Input.GetAxis("Vertical"), 0, 1);
-		float brake = -1 * Mathf.Clamp(Input.GetAxis("Vertical"), -1, 0);
-
-		setSteerAngle(steer * steerAngle);
-		setBrake(brake * brakeTorque);
-		Debug.Log(rigidbody.velocity.sqrMagnitude);
-		if(rigidbody.velocity.sqrMagnitude < maxSqrMagnitude)
-			setTorque(motorTorque * motor);
-		audio.pitch = 1 + (forwardWheels[forwardWheels.Count-1].motorTorque) / motorTorque;
-	}
-
-	*/
-
-	void setTorque(float value){
-		for(int i=0;i < forwardWheels.Count;i++){
-			forwardWheels[i].motorTorque = value;
 		}
+		if(Input.GetKeyDown("right")){
+			x++;
+			if(!pressed)				
+				move (x);
+			pressed = true;
+
+		}
+		if(Input.GetKeyUp("left") || Input.GetKeyUp("right"))
+			pressed = false;
+		rigidbody.velocity = new Vector3(0,0,getVelocity());
+		audio.pitch = getPitch();
+		//Debug.Log("RPM = "+rpm+" - Torque = "+getVelocity() + " speed " + rigidbody.velocity.sqrMagnitude + " gear = " + gear );
+
 	}
 
-	void setSteerAngle(float value){
-		for(int i=0;i < forwardWheels.Count;i++){
-			forwardWheels[i].steerAngle = value;
-		}
+	public void move(int x) {
+		if((band < 3 && x > 0) || (band > 0 && x < 0))
+			band = band + x;
+		Vector3 newPos = new Vector3(positions[band],transform.position.y,transform.position.z);
+		transform.position = newPos;
 	}
 
-	void setBrake(float value){
-		for(int i=0;i < forwardWheels.Count;i++){
-			forwardWheels[i].brakeTorque = value;
-		}
+	public float getVelocity() {
+		return 0.06f*rpm/(axleRatio*GearRatios[gear]);
+	}
 
-		for(int i=0;i < backWheels.Count;i++){
-			backWheels[i].brakeTorque = value;
-		}
-	}	
+	public float getPitch() {
+		return 1f + 0.4f*(rpm/maxRpm);
+	}
 }
