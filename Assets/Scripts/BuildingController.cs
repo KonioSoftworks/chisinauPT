@@ -7,5 +7,4 @@ public class BuildingController : MonoBehaviour {
 	public float distanceFromOthers;
 	public float heightFromRoad;
 
-	public float probability;
 }
