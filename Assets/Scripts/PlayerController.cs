@@ -88,6 +88,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void move(int x) {
+		if(isMoving)
+			return ;
 		isMoving = true;
 		if ((band < 3 && x > 0) || (band > 0 && x < 0)) {
 			previousBand = band;
