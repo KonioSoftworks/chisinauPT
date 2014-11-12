@@ -1,0 +1,19 @@
+diff a/Assets/scene.unity b/Assets/scene.unity	(rejected hunks)
+@@ -260,7 +260,7 @@
+   m_Color: {r: 1, g: 1, b: 1, a: 1}
+   m_Intensity: 8
+   m_Range: 20
+-  m_SpotAngle: 45
++  m_SpotAngle: 40
+   m_CookieSize: 10
+   m_Shadows:
+     m_Type: 0
+@@ -332,7 +332,7 @@
+   m_GameObject: {fileID: 692422591}
+   m_Enabled: 1
+   serializedVersion: 2
+-  m_ClearFlags: 3
++  m_ClearFlags: 1
+   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+   m_NormalizedViewPortRect:
+     serializedVersion: 2
