@@ -332,8 +332,8 @@ Camera:
   m_GameObject: {fileID: 692422591}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 3
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -381,12 +381,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carDistance: 10
   tile: {fileID: 100018, guid: 6c38f4e8e8392274bb093cc9e5a3c7bf, type: 2}
-  tileRendered: 10
+  tileRendered: 12
   distanceBetweenTiles: 10
   sun: {fileID: 1623391243}
   availableBuildings:
   - {fileID: 100000, guid: a3b62ad141f8f6540b3a2aabc24e1fdf, type: 2}
   - {fileID: 100000, guid: 92ce6c56c1055e74483b7875cfc0c18d, type: 2}
+  sideWalkAvailableItems:
+  - {fileID: 0}
 --- !u!1 &740130734
 GameObject:
   m_ObjectHideFlags: 0

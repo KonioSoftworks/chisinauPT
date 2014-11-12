@@ -83,8 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceFromRoad: 2
   distanceFromOthers: 20
-  heightFromRoad: 8
-  probability: 0
+  heightFromRoad: 6.54911804
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

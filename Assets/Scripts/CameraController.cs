@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour {
 
 	public GameObject tile;
 
-	public int tileRendered = 10;
+	public int tileRendered = 12;
 
 	public float distanceBetweenTiles = 10f;
 
@@ -19,15 +19,25 @@ public class CameraController : MonoBehaviour {
 	public GameObject sun;
 
 	public List<GameObject> availableBuildings;
-
 	private List<GameObject> buildings;
+
+	public List<GameObject> sideWalkAvailableItems;
+	private List<GameObject> sideWalkItems;
+
+
 
 	private float leftDistance = 0f;
 	private float rightDistance = 0f;
-	private float roadDistance = 12f;
+
+	private float leftSideWalkDistance = 0f;
+	private float rightSideWalkDistance = 0f;
+
+	private float roadDistance = 18f;
+
 	void Start () {
 		tiles = new List<GameObject>();
 		buildings = new List<GameObject>();
+		sideWalkItems = new List<GameObject>();
 		GameObject Road = GameObject.FindGameObjectWithTag("Road");
 
 		//render road tiles
@@ -73,8 +83,17 @@ public class CameraController : MonoBehaviour {
 			}
 		}
 
+		for(int i=0;i < sideWalkItems.Count;i++) {
+			if(sideWalkItems[i].transform.position.z + hz < transform.position.z){
+				Destroy(sideWalkItems[i]);
+				sideWalkItems.RemoveAt(i);
+			}
+		}
+
 		renderSide(ref leftDistance,-1);
 		renderSide(ref rightDistance,1);
+		renderSideWalk(ref leftSideWalkDistance,-1);
+		renderSideWalk(ref rightSideWalkDistance,1);
 	}
 
 	void renderSide(ref float sideDistance,int pos){
@@ -82,7 +101,19 @@ public class CameraController : MonoBehaviour {
 			GameObject obj = availableBuildings[Random.Range(0,availableBuildings.Count)];
 			BuildingController objController = (BuildingController) obj.GetComponent(typeof(BuildingController));
 			Vector3 position = new Vector3(pos*roadDistance+(pos*objController.distanceFromRoad),objController.heightFromRoad,sideDistance);
+
 			buildings.Add((GameObject)Instantiate(obj,position,obj.transform.rotation));
+			sideDistance += objController.distanceFromOthers + Random.Range(0,10);
+		}
+	}
+
+	void renderSideWalk(ref float sideDistance,int pos){
+		while(sideDistance <= distance){
+			GameObject obj = sideWalkAvailableItems[Random.Range(0,sideWalkAvailableItems.Count)];
+			BuildingController objController = (BuildingController) obj.GetComponent(typeof(BuildingController));
+			Vector3 position = new Vector3(pos*roadDistance+(pos*objController.distanceFromRoad),objController.heightFromRoad,sideDistance);
+
+			sideWalkItems.Add((GameObject)Instantiate(obj,position,obj.transform.rotation));
 			sideDistance += objController.distanceFromOthers + Random.Range(0,10);
 		}
 	}
