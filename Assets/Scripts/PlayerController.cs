@@ -105,19 +105,24 @@ public class PlayerController : MonoBehaviour {
 		float radius = getVelocity()/40f;
 		if (k > 0) {
 			float mediumX = (newPositions[band] + newPositions[previousBand])/2f;
-			if (x - positions[0] < mediumX)
+			if (x - positions[0] < mediumX){
 				transform.Rotate (Vector3.up, 1 * radius);
-			else{
+				transform.Rotate (Vector3.forward, 1 * radius/10f);
+			}else{
 				transform.Rotate (Vector3.up, -1 * radius);
+				transform.Rotate (Vector3.forward, -1 * radius/10f);
 			}
 		} 
 
 		else {
 			float mediumX = (newPositions[previousBand] + newPositions[band])/2f;	
-			if (x - positions[0] < mediumX)
-				transform.Rotate (Vector3.up, 1 * radius);
-			else
-				transform.Rotate (Vector3.up, -1 * radius);
+			if (x - positions[0] < mediumX){
+				transform.Rotate (Vector3.up, 1 * radius);				
+				transform.Rotate (Vector3.forward, 1 * radius/10f);
+			}else{
+				transform.Rotate (Vector3.up, -1 * radius);				
+				transform.Rotate (Vector3.forward, -1 * radius/10f);
+			}
 		}
 		x += ((x < positions[band]) ? 1f  : -1f) * units;
 		Vector3 newPos = new Vector3 (x, transform.position.y, transform.position.z);
@@ -130,10 +135,6 @@ public class PlayerController : MonoBehaviour {
 			isMoving = false;
 		}
 	}
-
-
-
-
 
 	public float getVelocity() {
 		return 0.06f*rpm/(axleRatio*GearRatios[gear]);

@@ -111,7 +111,7 @@ public class CameraController : MonoBehaviour {
 		while(sideDistance <= distance){
 			GameObject obj = sideWalkAvailableItems[Random.Range(0,sideWalkAvailableItems.Count)];
 			BuildingController objController = (BuildingController) obj.GetComponent(typeof(BuildingController));
-			Vector3 position = new Vector3(pos*roadDistance+(pos*objController.distanceFromRoad),objController.heightFromRoad,sideDistance);
+			Vector3 position = new Vector3(pos*7+(pos*objController.distanceFromRoad),objController.heightFromRoad,sideDistance);
 
 			sideWalkItems.Add((GameObject)Instantiate(obj,position,obj.transform.rotation));
 			sideDistance += objController.distanceFromOthers + Random.Range(0,10);
