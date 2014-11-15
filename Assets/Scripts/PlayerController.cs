@@ -4,8 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
-	//new phisics
 
+	//transmision
 	public List<float> GearRatios;
 
 	public float axleRatio;
@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviour {
 
 	private int gear;
 
+	//effects
+
+	//position on road
+
 	private int band = 3;
 	private int previousBand = 0;
 
@@ -36,14 +40,27 @@ public class PlayerController : MonoBehaviour {
 
 	private bool isMoving = false;
 
+	//FMOD
+
+	FMOD.Studio.EventInstance Engine;
+	FMOD.Studio.ParameterInstance EngineRPM;
+	FMOD.Studio.ParameterInstance EngineLoad;
+
 	void Start() {
 		rpm = minRpm;
 		gear = 0;
+	
+		//FMOD
+		Engine = FMOD_StudioSystem.instance.GetEvent ("event:/v2");
+		Engine.getParameter ("RPM", out EngineRPM);
+		Engine.getParameter ("Load",out EngineLoad);
+		Engine.start();
 	}
 
 	void Update() {
+
 		if (isMoving)
-						smoothMove ();
+			smoothMove ();
 		int x = 0;
 
 		float gas = 1;
@@ -59,12 +76,13 @@ public class PlayerController : MonoBehaviour {
 			rpm = Mathf.Min (maxRpm,rpm);
 		}
 		if(rpm == maxRpm && gear < GearRatios.Count-1){
-			rpm = minRpm+1f;
 			gear++;
+			rpm = getRpmByVelocity() + 0.01f;
 		}
 		if(rpm == minRpm && gear > 0){
-			rpm = maxRpm-1f;
 			gear--;
+			rpm = getRpmByVelocity() - 0.01f;
+			//Engine.stop();
 		}
 
 		if(Input.GetKeyDown("left")){
@@ -82,9 +100,8 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKeyUp("left") || Input.GetKeyUp("right"))
 			pressed = false;
 		rigidbody.velocity = new Vector3(0,0,getVelocity());
-		audio.pitch = getPitch();
-		//Debug.Log("RPM = "+rpm+" - Velocity = "+getVelocity() + " gear " + gear );
-
+		EngineRPM.setValue(rpm);
+		EngineLoad.setValue(gear * (1/GearRatios.Count));
 	}
 
 	public void move(int x) {
@@ -107,10 +124,10 @@ public class PlayerController : MonoBehaviour {
 			float mediumX = (newPositions[band] + newPositions[previousBand])/2f;
 			if (x - positions[0] < mediumX){
 				transform.Rotate (Vector3.up, 1 * radius);
-				transform.Rotate (Vector3.forward, 1 * radius/10f);
+				transform.Rotate (Vector3.forward, 1 * radius);
 			}else{
 				transform.Rotate (Vector3.up, -1 * radius);
-				transform.Rotate (Vector3.forward, -1 * radius/10f);
+				transform.Rotate (Vector3.forward, -1 * radius);
 			}
 		} 
 
@@ -118,10 +135,10 @@ public class PlayerController : MonoBehaviour {
 			float mediumX = (newPositions[previousBand] + newPositions[band])/2f;	
 			if (x - positions[0] < mediumX){
 				transform.Rotate (Vector3.up, 1 * radius);				
-				transform.Rotate (Vector3.forward, 1 * radius/10f);
+				transform.Rotate (Vector3.forward, 1 * radius);
 			}else{
 				transform.Rotate (Vector3.up, -1 * radius);				
-				transform.Rotate (Vector3.forward, -1 * radius/10f);
+				transform.Rotate (Vector3.forward, -1 * radius);
 			}
 		}
 		x += ((x < positions[band]) ? 1f  : -1f) * units;
@@ -140,7 +157,8 @@ public class PlayerController : MonoBehaviour {
 		return 0.06f*rpm/(axleRatio*GearRatios[gear]);
 	}
 
-	public float getPitch() {
-		return 1f + 0.4f*(rpm/maxRpm);
+	public float getRpmByVelocity(){
+		return rigidbody.velocity.z * axleRatio * GearRatios[gear] / 0.06f; 
 	}
+
 }
