@@ -161,4 +161,8 @@ public class PlayerController : MonoBehaviour {
 		return rigidbody.velocity.z * axleRatio * GearRatios[gear] / 0.06f; 
 	}
 
+	void OnCollisionEnter(Collision collision) {
+		Debug.Log("Collision enter");
+	}
+
 }
