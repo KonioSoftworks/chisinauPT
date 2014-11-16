@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour {
 	public float maxRpm;
 
 	public float wheelRadius;
+	public int score = 0;
+	public GUIText score_text;
 
 	public float hp;
 
@@ -49,7 +51,8 @@ public class PlayerController : MonoBehaviour {
 	void Start() {
 		rpm = minRpm;
 		gear = 0;
-	
+		score_text.text = "Score : ";
+		score = 0;
 		//FMOD
 		Engine = FMOD_StudioSystem.instance.GetEvent ("event:/v2");
 		Engine.getParameter ("RPM", out EngineRPM);
@@ -152,6 +155,17 @@ public class PlayerController : MonoBehaviour {
 			isMoving = false;
 		}
 	}
+
+	void OnTriggerEnter(Collider other){
+		if(other.gameObject.tag == "Coins"){
+				score += 1;
+				score_text.text = "Score : " + score.ToString();
+				Debug.Log("DSDsad");
+			}
+
+	}
+
+
 
 	public float getVelocity() {
 		return 0.06f*rpm/(axleRatio*GearRatios[gear]);

@@ -7,14 +7,18 @@ public class CameraController : MonoBehaviour {
 	public float carDistance = 12f;
 
 	public GameObject tile;
+	public GameObject coin;
 
 	public int tileRendered = 12;
 
 	public float distanceBetweenTiles = 10f;
 
 	private List<GameObject> tiles;
+	private List<GameObject> coins;
+    float[] coin_p = new float[]{-5f,-1.8f,1.8f,5f};
 
 	private float distance = 0f;
+	private float coin_pos = 0f;
 
 	public GameObject sun;
 
@@ -38,6 +42,7 @@ public class CameraController : MonoBehaviour {
 		tiles = new List<GameObject>();
 		buildings = new List<GameObject>();
 		sideWalkItems = new List<GameObject>();
+		coins = new List<GameObject>();
 		GameObject Road = GameObject.FindGameObjectWithTag("Road");
 
 		//render road tiles
@@ -48,18 +53,44 @@ public class CameraController : MonoBehaviour {
 			tiles.Add((GameObject)Instantiate(tile,newPosition,tile.transform.rotation));
 			tiles[i].transform.parent = Road.transform;
 		}
-
+		coin_generator();
 		renderBuildings();
+
+	}
+
+	void coin_generator(){
+
+		for(int i=0; i< 20; i++){
+			Vector3 pos = new Vector3(coin_p[Random.Range(0,3)] ,coin.transform.position.y,
+			                          tile.transform.position.z+Random.Range(0,100));
+			coins.Add((GameObject)Instantiate(coin,pos,coin.transform.rotation));
+		}
+
 	}
 
 	// Update is called once per frame
 	void Update () {
 		// move camera and sun xD
 		var car = GameObject.FindGameObjectWithTag("Player");
+		var money = GameObject.FindGameObjectWithTag("Coins");
 		Vector3 carV = car.transform.position;
 		Vector3 camV = transform.position;
 		transform.position = new Vector3(camV.x,camV.y,carV.z - carDistance);
 		sun.transform.position = new Vector3(sun.transform.position.x,sun.transform.position.y,carV.z - carDistance);
+
+
+		// coins
+		for(int i = 0; i<20; i++){
+
+			if(!coins[i].renderer.isVisible){
+			Vector3 new_c_pos = new Vector3(coin_p[Random.Range(0,4)], coins[i].transform.position.y, 
+				                                coins[i].transform.position.z + 
+				                                Random.Range(0,100) );
+				coins[i].transform.position = new_c_pos;
+				coins[i].transform.Rotate(new Vector3(15,30,45) * Time.deltaTime*10);
+			}
+		}
+
 
 		// moving tiles
 		for(int i=0;i < tiles.Count;i++){
@@ -72,7 +103,11 @@ public class CameraController : MonoBehaviour {
 			}
 		}
 		renderBuildings();
+
+	
 	}
+
+
 
 	void renderBuildings() {
 		const float hz = 10f;
