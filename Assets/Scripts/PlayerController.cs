@@ -23,10 +23,13 @@ public class PlayerController : MonoBehaviour {
 	public float converterRatio = 3f;
 
 	private float rpm;
-
+	private float fuel = 100;
+	public float maxFuel = 100;
 	private int gear;
 
-	//effects
+	//fuel
+
+	private int fuelCan = 20;
 
 	//position on road
 
@@ -51,7 +54,6 @@ public class PlayerController : MonoBehaviour {
 	void Start() {
 		rpm = minRpm;
 		gear = 0;
-		score_text.text = "Score : ";
 		score = 0;
 		//FMOD
 		Engine = FMOD_StudioSystem.instance.GetEvent ("event:/v2");
@@ -60,11 +62,20 @@ public class PlayerController : MonoBehaviour {
 		Engine.start();
 	}
 
-	void Update() {
+	void OnGUI(){
+		GUI.color = Color.yellow;
+		GUI.Box( new Rect(Screen.width - 210, 10, getBoxWidthByFuel(fuel), 20), "");
+	}
 
+	int getBoxWidthByFuel(float fuel){
+		return Mathf.RoundToInt((200/maxFuel) * fuel);
+	}
+
+	void Update() {
 		if (isMoving)
-			smoothMove ();
+			smoothMove();
 		int x = 0;
+		fuel = Mathf.Clamp(fuel - Time.deltaTime * 4,0,maxFuel);
 
 		float gas = 1;
 		float brake = -1 * Mathf.Clamp(Input.GetAxis("Vertical"), -1, 0);
@@ -158,14 +169,15 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "Coins"){
-				score += 1;
-				score_text.text = "Score : " + score.ToString();
-				Debug.Log("DSDsad");
-			}
+			score += 3;
+			score_text.text = "Money : " + score.ToString() + " lei";
+			other.gameObject.SetActive(false);
+		}
+		if(other.gameObject.tag == "Fuel"){
+			fuel = Mathf.Clamp(fuel+fuelCan,0,maxFuel);
+		}
 
 	}
-
-
 
 	public float getVelocity() {
 		return 0.06f*rpm/(axleRatio*GearRatios[gear]);
