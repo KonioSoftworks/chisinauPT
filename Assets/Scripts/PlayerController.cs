@@ -180,11 +180,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public float getVelocity() {
-		return 0.06f*rpm/(axleRatio*GearRatios[gear]);
+		return (0.104f * wheelRadius * rpm)/(axleRatio*GearRatios[gear]);
 	}
 
 	public float getRpmByVelocity(){
-		return rigidbody.velocity.z * axleRatio * GearRatios[gear] / 0.06f; 
+		return rigidbody.velocity.z * axleRatio * GearRatios[gear] / (0.104f * wheelRadius); 
 	}
 
 	void OnCollisionEnter(Collision collision) {
