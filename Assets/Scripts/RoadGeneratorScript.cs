@@ -126,7 +126,7 @@ public class RoadGeneratorScript : MonoBehaviour {
 
 	void renderFuelCan(){
 		while(distanceCans < distance){
-			distanceCans += distanceBetweenCans + Random.Range(0,200);
+			distanceCans += distanceBetweenCans + Random.Range(0,100);
 			int band = Random.Range(0,4);
 			Vector3 position = new Vector3(bandsPositions[band],0,distanceCans);
 			Instantiate(fuelCan,position,fuelCan.transform.rotation);

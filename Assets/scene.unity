@@ -688,11 +688,12 @@ MonoBehaviour:
   minDestroyDistance: 150
   availableCars:
   - {fileID: 100032, guid: 248c2fa8baff9ac40b7f95b68a2472a3, type: 2}
-  - {fileID: 100026, guid: 3aceec54368783d4fb052044e8ab8fa3, type: 2}
-  - {fileID: 100028, guid: 2816e68fdb0215c4fbc2e2822d3e5067, type: 2}
   - {fileID: 100038, guid: 54b10ac953cb20e40aa8b8d7a62d91d8, type: 2}
-  - {fileID: 100028, guid: a02f96bdc8997294c950de18efbb0cb9, type: 2}
-  - {fileID: 100032, guid: 9455db03585cd364695388031b909207, type: 2}
+  - {fileID: 0}
+  - {fileID: 100038, guid: 2d8a71cc4fbe0fa4ba35fe3d401d27f7, type: 2}
+  - {fileID: 100036, guid: 19db99a0d70a2f2438ff4726a01b7079, type: 2}
+  - {fileID: 100032, guid: b4aa84fe6b8e48f4c97d5bcb68485ab4, type: 2}
+  - {fileID: 100034, guid: 054f173a2e82a54458d52f476cd13f2b, type: 2}
 --- !u!1 &765148943
 GameObject:
   m_ObjectHideFlags: 0
