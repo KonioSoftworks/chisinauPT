@@ -127,6 +127,7 @@ public class PlayerController : MonoBehaviour {
 			if(GUI.Button(new Rect(posx_resume, posy_resume ,100,40),"Try again") ){
 				isPaused = false;
 				Time.timeScale = 1;
+				Application.LoadLevel("scene");
 			}
 			if(GUI.Button( new Rect(posx_resume, posy_exit, 100, 40),"Exit") ) {
 				Save ();
