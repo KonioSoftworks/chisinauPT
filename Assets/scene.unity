@@ -1470,7 +1470,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &1744291604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1493,11 +1492,12 @@ MonoBehaviour:
   minRpm: 1000
   maxRpm: 2500
   wheelRadius: .379999995
-  score: 0
   score_text: {fileID: 811286260}
   hp: 130
   converterRatio: 3
   maxFuel: 100
+  money: 0
+  car: 0
 --- !u!54 &1744291605
 Rigidbody:
   m_ObjectHideFlags: 0

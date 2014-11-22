@@ -2,6 +2,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class PlayerController : MonoBehaviour {
 
@@ -15,7 +17,6 @@ public class PlayerController : MonoBehaviour {
 	public float maxRpm;
 
 	public float wheelRadius;
-	public int score = 0;
 	public GUIText score_text;
 
 	public float hp;
@@ -31,12 +32,20 @@ public class PlayerController : MonoBehaviour {
 
 	private int fuelCan = 20;
 
+
+	// Player Data -> To Save
+
+	public int money;
+	public int car;
+
 	//position on road
 
 	private int band = 3;
 	private int previousBand = 0;
 
 	private bool pressed = false;
+	private bool isPaused = false;
+	private bool gameOver = false;
 
 	private float[] positions = new float[]{-5f,-1.8f,1.8f,5f};
 
@@ -45,6 +54,11 @@ public class PlayerController : MonoBehaviour {
 
 	private bool isMoving = false;
 
+	// GUI
+	float posx_resume = Screen.width / 2 -50;
+	float posy_resume = Screen.height / 2 - 20;
+	float posy_exit = Screen.height / 2 + 50;
+
 	//FMOD
 
 	FMOD.Studio.EventInstance Engine;
@@ -52,9 +66,11 @@ public class PlayerController : MonoBehaviour {
 	FMOD.Studio.ParameterInstance EngineLoad;
 
 	void Start() {
+		Time.timeScale  = 1;
 		rpm = minRpm;
 		gear = 0;
-		score = 0;
+		money = 0;
+		Load();
 		//FMOD
 		Engine = FMOD_StudioSystem.instance.GetEvent ("event:/v2");
 		Engine.getParameter ("RPM", out EngineRPM);
@@ -62,9 +78,64 @@ public class PlayerController : MonoBehaviour {
 		Engine.start();
 	}
 
+	void Save(){
+		BinaryFormatter b = new BinaryFormatter();
+		FileStream file = File.Create(Application.persistentDataPath + "/playerData.dat");
+		PlayerData data = new PlayerData();
+		data.money = money;
+		data.car = car;
+		b.Serialize(file, data);
+		Debug.Log("Saved !!! ");
+		file.Close();
+	}
+
+	 void Load(){
+		if(File.Exists(Application.persistentDataPath + "/playerData.dat")){
+			BinaryFormatter b = new BinaryFormatter();
+			FileStream file = File.Open(Application.persistentDataPath +"/playerData.dat", FileMode.Open);
+			PlayerData data = (PlayerData)b.Deserialize(file);
+			money = data.money;
+			car = data.car;
+			file.Close();
+		}
+		Debug.Log("Loaded  !!! ");
+	}
+
+
 	void OnGUI(){
 		GUI.color = Color.yellow;
 		GUI.Box( new Rect(Screen.width - 210, 10, getBoxWidthByFuel(fuel), 20), "");
+
+		// Game Paused
+		if(isPaused){
+			GUI.color = new Color(1.0f,1.0f,1.0f, 1.0f);
+			GUI.Box(new Rect(0,0, Screen.width, Screen.height), "");
+			if(GUI.Button(new Rect(posx_resume, posy_resume ,100,40),"Resume") ){
+				isPaused = false;
+				Time.timeScale = 1;
+			}
+			if(GUI.Button( new Rect(posx_resume, posy_exit, 100, 40),"Exit") ) {
+				Save ();
+				Application.LoadLevel("menu");
+			}
+
+		}
+		// Game Over
+		if(gameOver){
+			Time.timeScale = 0;
+			GUI.color = new Color(1.0f,1.0f,1.0f, 1.0f);
+			GUI.Box(new Rect(0,0, Screen.width, Screen.height), "");
+
+			if(GUI.Button(new Rect(posx_resume, posy_resume ,100,40),"Try again") ){
+				isPaused = false;
+				Time.timeScale = 1;
+			}
+			if(GUI.Button( new Rect(posx_resume, posy_exit, 100, 40),"Exit") ) {
+				Save ();
+				Application.LoadLevel("menu");
+			}
+		}
+
 	}
 
 	int getBoxWidthByFuel(float fuel){
@@ -72,7 +143,18 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update() {
-		if (isMoving)
+		if(Input.GetKeyDown(KeyCode.Escape)){
+			if(Time.timeScale != 0 ){
+				isPaused = true;
+				Time.timeScale = 0;
+				Save ();
+			}else{ 
+				Time.timeScale = 1;
+				isPaused = false;
+			}
+		}
+
+		if (isMoving && !isPaused)
 			smoothMove();
 		int x = 0;
 		fuel = Mathf.Clamp(fuel - Time.deltaTime * 4,0,maxFuel);
@@ -166,8 +248,8 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "Coins"){
-			score += 3;
-			score_text.text = "Money : " + score.ToString() + " lei";
+			money += 3;
+			score_text.text = "Money : " + money.ToString() + " lei";
 			other.gameObject.SetActive(false);
 		}
 		if(other.gameObject.tag == "Fuel"){
@@ -188,4 +270,11 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log("Collision enter");
 	}
 
+}
+[System.Serializable]
+class PlayerData{
+	public int money;
+	public int car;
+	
+	
 }
