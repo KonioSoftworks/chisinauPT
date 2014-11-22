@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour {
 
 	private bool pressed = false;
 	private bool isPaused = false;
+	private bool gameOver = false;
 
 	private float[] positions = new float[]{-5f,-1.8f,1.8f,5f};
 
@@ -112,15 +113,29 @@ public class PlayerController : MonoBehaviour {
 			if(GUI.Button(new Rect(posx_resume, posy_resume ,100,40),"Resume") ){
 				isPaused = false;
 				Time.timeScale = 1;
-
 			}
 			if(GUI.Button( new Rect(posx_resume, posy_exit, 100, 40),"Exit") ) {
 				Save ();
-				Load (); 
 				Application.LoadLevel("menu");
 			}
 
 		}
+		// Game Over
+		if(gameOver){
+			Time.timeScale = 0;
+			GUI.color = new Color(1.0f,1.0f,1.0f, 1.0f);
+			GUI.Box(new Rect(0,0, Screen.width, Screen.height), "");
+
+			if(GUI.Button(new Rect(posx_resume, posy_resume ,100,40),"Try again") ){
+				isPaused = false;
+				Time.timeScale = 1;
+			}
+			if(GUI.Button( new Rect(posx_resume, posy_exit, 100, 40),"Exit") ) {
+				Save ();
+				Application.LoadLevel("menu");
+			}
+		}
+
 	}
 
 	int getBoxWidthByFuel(float fuel){
@@ -128,8 +143,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update() {
-
-
 		if(Input.GetKeyDown(KeyCode.Escape)){
 			if(Time.timeScale != 0 ){
 				isPaused = true;
