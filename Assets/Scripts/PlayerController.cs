@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour {
 	private int previousBand = 0;
 
 	private bool pressed = false;
+	private bool isPaused = false;
 
 	private float[] positions = new float[]{-5f,-1.8f,1.8f,5f};
 
@@ -45,6 +46,11 @@ public class PlayerController : MonoBehaviour {
 
 	private bool isMoving = false;
 
+	// GUI
+	float posx_resume = Screen.width / 2 -50;
+	float posy_resume = Screen.height / 2 - 20;
+	float posy_exit = Screen.height / 2 + 50;
+
 	//FMOD
 
 	FMOD.Studio.EventInstance Engine;
@@ -52,6 +58,7 @@ public class PlayerController : MonoBehaviour {
 	FMOD.Studio.ParameterInstance EngineLoad;
 
 	void Start() {
+		Time.timeScale = 1;
 		rpm = minRpm;
 		gear = 0;
 		score = 0;
@@ -65,6 +72,20 @@ public class PlayerController : MonoBehaviour {
 	void OnGUI(){
 		GUI.color = Color.yellow;
 		GUI.Box( new Rect(Screen.width - 210, 10, getBoxWidthByFuel(fuel), 20), "");
+
+		// Game Paused
+		if(isPaused){
+			GUI.color = new Color(1.0f,1.0f,1.0f, 1.0f);
+			GUI.Box(new Rect(0,0, Screen.width, Screen.height), "");
+			if(GUI.Button(new Rect(posx_resume, posy_resume ,100,40),"Resume") ){
+				isPaused = false;
+				Time.timeScale = 1;
+			}
+			if(GUI.Button( new Rect(posx_resume, posy_exit, 100, 40),"Exit") ) {
+				Application.LoadLevel("menu");
+			}
+
+		}
 	}
 
 	int getBoxWidthByFuel(float fuel){
@@ -72,7 +93,18 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update() {
-		if (isMoving)
+
+		if(Input.GetKeyDown(KeyCode.Escape)){
+			if(Time.timeScale != 0 ){
+				isPaused = true;
+				Time.timeScale = 0;
+			}else{ 
+				Time.timeScale = 1;
+				isPaused = false;
+			}
+		}
+
+		if (isMoving && !isPaused)
 			smoothMove();
 		int x = 0;
 		fuel = Mathf.Clamp(fuel - Time.deltaTime * 4,0,maxFuel);
