@@ -50,7 +50,7 @@ public class TrafficController : MonoBehaviour {
 	void generateCar (int band,float distance) {
 		Quaternion rotation = new Quaternion(0,(positions[band] > 0)? 0 : 180 ,0,0);
 		Vector3 position = new Vector3(positions[band],0,distance);
-		GameObject car = availableCars[Random.Range(0,availableCars.Count-1)];
+		GameObject car = availableCars[Random.Range(0,availableCars.Count)];
 		Instantiate(car,position,rotation);
 	}
 

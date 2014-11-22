@@ -17,14 +17,12 @@ public class Menu : MonoBehaviour {
 	}
 
 	void OnGUI(){
-
 		if(GUI.Button(new Rect(posx_play, posy_play ,100,40),"Play!") ){
 			Application.LoadLevel("scene");
 		}
 		if(GUI.Button( new Rect(posx_play, posy_exit, 100, 40),"Exit") ) {
 			Application.Quit();
 		}
-
 	}
 
 }

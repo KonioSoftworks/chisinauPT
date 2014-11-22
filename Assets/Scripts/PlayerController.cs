@@ -1,4 +1,3 @@
-﻿
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -120,6 +119,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		// Game Over
 		if(gameOver){
+
 			Time.timeScale = 0;
 			GUI.color = new Color(1.0f,1.0f,1.0f, 1.0f);
 			GUI.Box(new Rect(0,0, Screen.width, Screen.height), "");

@@ -165,6 +165,7 @@ GameObject:
   - 33: {fileID: 3300006}
   - 64: {fileID: 6400002}
   - 23: {fileID: 2300006}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Road tiles
@@ -1030,6 +1031,20 @@ MonoBehaviour:
   distanceFromRoad: 1
   distanceFromOthers: 20
   heightFromRoad: 2
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8210feb626b7efb4fa4f5c8d7b95448f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textures:
+  - {fileID: 2800000, guid: b18bcd3ea1e52e94cb4edfc8b71927f5, type: 3}
+  - {fileID: 2800000, guid: 9692241b2cdc17f49913578e7fffb1b1, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
