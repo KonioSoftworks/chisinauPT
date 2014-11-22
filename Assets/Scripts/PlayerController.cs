@@ -119,13 +119,14 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void move(int x) {
-		if(isMoving)
-			return ;
-		isMoving = true;
+		//if(isMoving)
+		//	return ;
 		if ((band < 3 && x > 0) || (band > 0 && x < 0)) {
-			previousBand = band;
+			if(!isMoving)
+				previousBand = band;
 			band = band + x;	
 		}
+		isMoving = true;
 	}
 
 	public void smoothMove(){
@@ -138,21 +139,17 @@ public class PlayerController : MonoBehaviour {
 			float mediumX = (newPositions[band] + newPositions[previousBand])/2f;
 			if (x - positions[0] < mediumX){
 				transform.Rotate (Vector3.up, 1 * radius);
-				transform.Rotate (Vector3.forward, 1 * radius);
 			}else{
 				transform.Rotate (Vector3.up, -1 * radius);
-				transform.Rotate (Vector3.forward, -1 * radius);
 			}
 		} 
 
 		else {
 			float mediumX = (newPositions[previousBand] + newPositions[band])/2f;	
 			if (x - positions[0] < mediumX){
-				transform.Rotate (Vector3.up, 1 * radius);				
-				transform.Rotate (Vector3.forward, 1 * radius);
+				transform.Rotate (Vector3.up, 1 * radius);		
 			}else{
-				transform.Rotate (Vector3.up, -1 * radius);				
-				transform.Rotate (Vector3.forward, -1 * radius);
+				transform.Rotate (Vector3.up, -1 * radius);		
 			}
 		}
 		x += ((x < positions[band]) ? 1f  : -1f) * units;
