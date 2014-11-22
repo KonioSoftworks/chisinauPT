@@ -639,6 +639,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 748872559}
   - 114: {fileID: 748872560}
+  - 114: {fileID: 748872561}
   m_Layer: 0
   m_Name: Road
   m_TagString: Road
@@ -670,6 +671,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pluginPaths: []
+--- !u!114 &748872561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 748872558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ce04fd1694dd94ca8f0ee6cec8daad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minCarNum: 10
+  maxCarNum: 20
+  minRenderDistance: 100
+  minDestroyDistance: 150
+  availableCars:
+  - {fileID: 100032, guid: 248c2fa8baff9ac40b7f95b68a2472a3, type: 2}
+  - {fileID: 100026, guid: 3aceec54368783d4fb052044e8ab8fa3, type: 2}
+  - {fileID: 100028, guid: 2816e68fdb0215c4fbc2e2822d3e5067, type: 2}
+  - {fileID: 100038, guid: 54b10ac953cb20e40aa8b8d7a62d91d8, type: 2}
+  - {fileID: 100028, guid: a02f96bdc8997294c950de18efbb0cb9, type: 2}
+  - {fileID: 100032, guid: 9455db03585cd364695388031b909207, type: 2}
 --- !u!1 &765148943
 GameObject:
   m_ObjectHideFlags: 0

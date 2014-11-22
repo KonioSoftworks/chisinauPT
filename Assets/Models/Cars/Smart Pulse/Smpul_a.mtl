@@ -1,0 +1,108 @@
+# 
+# Wavefront material file
+# Converted by the DEEP Exploration 
+# Right Hemisphere, LTD
+# http://www.righthemisphere.com/
+# 
+newmtl black
+	 Ka 0 0 0
+	 Kd 0 0 0
+	 Ks 1 1 1
+	 illum 2
+	 Ns 78.7932
+newmtl body
+	 Ka 0 0 0
+	 Kd 0.360784 0.360784 0.360784
+	 Ks 1 1 1
+	 illum 2
+	 Ns 2048
+newmtl body2
+	 Ka 0 0 0
+	 Kd 0.74902 0.74902 0.74902
+	 Ks 1 1 1
+	 illum 2
+	 Ns 2048
+newmtl braklght
+	 Ka 0 0 0
+	 Kd 1 0.0313726 0.0117647
+	 Ks 1 1 1
+	 illum 2
+	 Ns 2048
+newmtl chrome
+	 Ka 0 0 0
+	 Kd 0.0862745 0.0901961 0.0941177
+	 Ks 0.431373 0.454902 0.47451
+	 illum 2
+	 Ns 2048
+newmtl glass
+	 Ka 0 0 0
+	 Kd 0.196078 0.247059 0.231373
+	 Ks 1 1 1
+	 illum 2
+	 Ns 2048
+newmtl glassblk
+	 Ka 0 0 0
+	 Kd 0 0 0
+	 Ks 1 1 1
+	 illum 2
+	 Ns 2048
+newmtl glasstop
+	 Ka 0 0 0
+	 Kd 0 0 0
+	 Ks 1 1 1
+	 illum 2
+	 Ns 2048
+newmtl headlght
+	 Ka 0 0 0
+	 Kd 0.498039 0.498039 0.498039
+	 Ks 1 1 1
+	 illum 2
+	 Ns 2048
+newmtl interior
+	 Ka 0 0 0
+	 Kd 0.227451 0.254902 0.439216
+	 Ks 0.188235 0.211765 0.360784
+	 illum 2
+	 Ns 119.428
+newmtl mirror
+	 Ka 0 0 0
+	 Kd 0 0 0
+	 Ks 1 1 1
+	 illum 2
+	 Ns 2048
+newmtl nplate
+	 Ka 0 0 0
+	 Kd 0.87451 0.87451 0.87451
+	 Ks 1 1 1
+	 illum 2
+	 Ns 337.794
+newmtl plastic
+	 Ka 0 0 0
+	 Kd 0.156863 0.156863 0.156863
+	 Ks 1 1 1
+	 illum 2
+	 Ns 2048
+newmtl seats
+	 Ka 0 0 0
+	 Kd 0.290196 0.321569 0.560784
+	 Ks 0.239216 0.266667 0.462745
+	 illum 2
+	 Ns 119.428
+newmtl turnlght
+	 Ka 0 0 0
+	 Kd 1 0.607843 0
+	 Ks 1 1 1
+	 illum 2
+	 Ns 2048
+newmtl tyre
+	 Ka 0 0 0
+	 Kd 0.278431 0.278431 0.278431
+	 Ks 1 1 1
+	 illum 2
+	 Ns 78.7932
+newmtl wheel
+	 Ka 0 0 0
+	 Kd 0.745098 0.745098 0.745098
+	 Ks 0.745098 0.745098 0.745098
+	 illum 2
+	 Ns 1024

@@ -1,0 +1,132 @@
+fileFormatVersion: 2
+guid: dd2557b08a7d9304aa9624818c4b5ee7
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: BLACK BLAC
+    100002: BLACK MATT
+    100004: BLACK PLA1
+    100006: BLACK PLAS
+    100008: BLUE
+    100010: CAR GLASS
+    100012: CHROME
+    100014: LEATHER BE
+    100016: LIGHT ORAN
+    100018: LIGHT RED
+    100020: LIGHT WHIT
+    100022: WHEEL ALUM
+    100024: WHITE BODY
+    100026: WHITE-1
+    100028: //RootNode
+    400000: BLACK BLAC
+    400002: BLACK MATT
+    400004: BLACK PLA1
+    400006: BLACK PLAS
+    400008: BLUE
+    400010: CAR GLASS
+    400012: CHROME
+    400014: LEATHER BE
+    400016: LIGHT ORAN
+    400018: LIGHT RED
+    400020: LIGHT WHIT
+    400022: WHEEL ALUM
+    400024: WHITE BODY
+    400026: WHITE-1
+    400028: //RootNode
+    2300000: BLACK BLAC
+    2300002: BLACK MATT
+    2300004: BLACK PLA1
+    2300006: BLACK PLAS
+    2300008: BLUE
+    2300010: CAR GLASS
+    2300012: CHROME
+    2300014: LEATHER BE
+    2300016: LIGHT ORAN
+    2300018: LIGHT RED
+    2300020: LIGHT WHIT
+    2300022: WHEEL ALUM
+    2300024: WHITE BODY
+    2300026: WHITE-1
+    3300000: BLACK BLAC
+    3300002: BLACK MATT
+    3300004: BLACK PLA1
+    3300006: BLACK PLAS
+    3300008: BLUE
+    3300010: CAR GLASS
+    3300012: CHROME
+    3300014: LEATHER BE
+    3300016: LIGHT ORAN
+    3300018: LIGHT RED
+    3300020: LIGHT WHIT
+    3300022: WHEEL ALUM
+    3300024: WHITE BODY
+    3300026: WHITE-1
+    4300000: BLACK BLAC
+    4300002: BLACK MATT
+    4300004: BLACK PLAS
+    4300006: BLACK PLA1
+    4300008: BLUE
+    4300010: CAR GLASS
+    4300012: CHROME
+    4300014: LEATHER BE
+    4300016: LIGHT ORAN
+    4300018: LIGHT RED
+    4300020: LIGHT WHIT
+    4300022: WHEEL ALUM
+    4300024: WHITE BODY
+    4300026: WHITE-1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
