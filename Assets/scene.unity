@@ -1469,11 +1469,12 @@ MonoBehaviour:
   minRpm: 1000
   maxRpm: 2500
   wheelRadius: .379999995
-  score: 0
   score_text: {fileID: 811286260}
   hp: 130
   converterRatio: 3
   maxFuel: 100
+  money: 0
+  car: 0
 --- !u!54 &1744291605
 Rigidbody:
   m_ObjectHideFlags: 0
