@@ -85,7 +85,6 @@ public class PlayerController : MonoBehaviour {
 		data.money = money;
 		data.car = car;
 		b.Serialize(file, data);
-		Debug.Log("Saved !!! ");
 		file.Close();
 	}
 
@@ -98,7 +97,6 @@ public class PlayerController : MonoBehaviour {
 			car = data.car;
 			file.Close();
 		}
-		Debug.Log("Loaded  !!! ");
 	}
 
 
@@ -143,6 +141,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update() {
+		if(fuel <= 0)
+			gameOver = true;
 		if(Input.GetKeyDown(KeyCode.Escape)){
 			if(Time.timeScale != 0 ){
 				isPaused = true;
@@ -254,8 +254,10 @@ public class PlayerController : MonoBehaviour {
 		}
 		if(other.gameObject.tag == "Fuel"){
 			fuel = Mathf.Clamp(fuel+fuelCan,0,maxFuel);
+			Destroy(other.gameObject);
 		}
-
+		if(other.gameObject.tag == "Car")
+			gameOver = true;
 	}
 
 	public float getVelocity() {
@@ -265,16 +267,10 @@ public class PlayerController : MonoBehaviour {
 	public float getRpmByVelocity(){
 		return rigidbody.velocity.z * axleRatio * GearRatios[gear] / (0.104f * wheelRadius); 
 	}
-
-	void OnCollisionEnter(Collision collision) {
-		Debug.Log("Collision enter");
-	}
-
 }
+
 [System.Serializable]
 class PlayerData{
 	public int money;
 	public int car;
-	
-	
 }
