@@ -1,0 +1,114 @@
+fileFormatVersion: 2
+guid: c6921755b33a0c94c982880064bab001
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Cadillac_1
+    100002: Cadillac_2
+    100004: Cadillac_3
+    100006: Cadillac_4
+    100008: Cadillac_5
+    100010: Cadillac_6
+    100012: Cadillac_7
+    100014: Cadillac_8
+    100016: Cadillac_9
+    100018: Cadillac_C
+    100020: //RootNode
+    100022: wiper_ns
+    400000: Cadillac_1
+    400002: Cadillac_2
+    400004: Cadillac_3
+    400006: Cadillac_4
+    400008: Cadillac_5
+    400010: Cadillac_6
+    400012: Cadillac_7
+    400014: Cadillac_8
+    400016: Cadillac_9
+    400018: Cadillac_C
+    400020: //RootNode
+    400022: wiper_ns
+    2300000: Cadillac_1
+    2300002: Cadillac_2
+    2300004: Cadillac_3
+    2300006: Cadillac_4
+    2300008: Cadillac_5
+    2300010: Cadillac_6
+    2300012: Cadillac_7
+    2300014: Cadillac_8
+    2300016: Cadillac_9
+    2300018: wiper_ns
+    3300000: Cadillac_1
+    3300002: Cadillac_2
+    3300004: Cadillac_3
+    3300006: Cadillac_4
+    3300008: Cadillac_5
+    3300010: Cadillac_6
+    3300012: Cadillac_7
+    3300014: Cadillac_8
+    3300016: Cadillac_9
+    3300018: wiper_ns
+    4300000: Cadillac_1
+    4300002: wiper_ns
+    4300004: Cadillac_2
+    4300006: Cadillac_3
+    4300008: Cadillac_4
+    4300010: Cadillac_5
+    4300012: Cadillac_6
+    4300014: Cadillac_7
+    4300016: Cadillac_8
+    4300018: Cadillac_9
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

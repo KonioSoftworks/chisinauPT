@@ -119,7 +119,8 @@ public class PlayerController : MonoBehaviour {
 		}
 		// Game Over
 		if(gameOver){
-
+			Engine.stop (0);
+			Engine.release ();
 			Time.timeScale = 0;
 			GUI.color = new Color(1.0f,1.0f,1.0f, 1.0f);
 			GUI.Box(new Rect(0,0, Screen.width, Screen.height), "");
@@ -202,8 +203,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void move(int x) {
-		//if(isMoving)
-		//	return ;
+		if(gameOver)
+			return ;
 		if ((band < 3 && x > 0) || (band > 0 && x < 0)) {
 			if(!isMoving)
 				previousBand = band;

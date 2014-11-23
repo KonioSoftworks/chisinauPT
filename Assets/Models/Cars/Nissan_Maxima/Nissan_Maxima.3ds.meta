@@ -1,0 +1,129 @@
+fileFormatVersion: 2
+guid: 97191dd07bf0aa54fadfe6246d21fc8e
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Nissan_M10
+    100002: Nissan_M11
+    100004: Nissan_M12
+    100006: Nissan_Ma1
+    100008: Nissan_Ma2
+    100010: Nissan_Ma3
+    100012: Nissan_Ma4
+    100014: Nissan_Ma5
+    100016: Nissan_Ma6
+    100018: Nissan_Ma7
+    100020: Nissan_Ma8
+    100022: Nissan_Ma9
+    100024: Nissan_Max
+    100026: //RootNode
+    100028: Viper_ns
+    400000: Nissan_M10
+    400002: Nissan_M11
+    400004: Nissan_M12
+    400006: Nissan_Ma1
+    400008: Nissan_Ma2
+    400010: Nissan_Ma3
+    400012: Nissan_Ma4
+    400014: Nissan_Ma5
+    400016: Nissan_Ma6
+    400018: Nissan_Ma7
+    400020: Nissan_Ma8
+    400022: Nissan_Ma9
+    400024: Nissan_Max
+    400026: //RootNode
+    400028: Viper_ns
+    2300000: Nissan_M10
+    2300002: Nissan_M11
+    2300004: Nissan_M12
+    2300006: Nissan_Ma1
+    2300008: Nissan_Ma2
+    2300010: Nissan_Ma3
+    2300012: Nissan_Ma4
+    2300014: Nissan_Ma5
+    2300016: Nissan_Ma6
+    2300018: Nissan_Ma7
+    2300020: Nissan_Ma8
+    2300022: Nissan_Ma9
+    2300024: Viper_ns
+    3300000: Nissan_M10
+    3300002: Nissan_M11
+    3300004: Nissan_M12
+    3300006: Nissan_Ma1
+    3300008: Nissan_Ma2
+    3300010: Nissan_Ma3
+    3300012: Nissan_Ma4
+    3300014: Nissan_Ma5
+    3300016: Nissan_Ma6
+    3300018: Nissan_Ma7
+    3300020: Nissan_Ma8
+    3300022: Nissan_Ma9
+    3300024: Viper_ns
+    4300000: Viper_ns
+    4300002: Nissan_Ma1
+    4300004: Nissan_Ma2
+    4300006: Nissan_Ma3
+    4300008: Nissan_Ma4
+    4300010: Nissan_Ma5
+    4300012: Nissan_Ma6
+    4300014: Nissan_Ma7
+    4300016: Nissan_Ma8
+    4300018: Nissan_Ma9
+    4300020: Nissan_M10
+    4300022: Nissan_M11
+    4300024: Nissan_M12
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

@@ -33,7 +33,7 @@ public class RoadGeneratorScript : MonoBehaviour {
 	//fuel can generating
 
 	public GameObject fuelCan;
-	private float distanceBetweenCans = 200f;
+	private float distanceBetweenCans = 100f;
 	private float distanceCans = 0f;
 
 	void Start () {

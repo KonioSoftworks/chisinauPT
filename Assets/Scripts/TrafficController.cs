@@ -48,10 +48,13 @@ public class TrafficController : MonoBehaviour {
 	}
 
 	void generateCar (int band,float distance) {
-		Quaternion rotation = new Quaternion(0,(positions[band] > 0)? 0 : 180 ,0,0);
 		Vector3 position = new Vector3(positions[band],0,distance);
-		GameObject car = availableCars[Random.Range(0,availableCars.Count)];
-		Instantiate(car,position,rotation);
+		GameObject car = availableCars[Random.Range(0,availableCars.Count)];		
+		//Quaternion rotation = new Quaternion(car.transform.rotation.x,car.transform.rotation.y + ((positions[band] > 0)? 0 : 180) ,car.transform.rotation.z,0);
+		if(car != null){
+			GameObject newCar = (GameObject)Instantiate(car,position,car.transform.rotation);
+			newCar.transform.Rotate(0,((positions[band] > 0)? 0 : 180),0);
+		}
 	}
 
 	float getDistance(Vector3 A,Vector3 B) {

@@ -1,0 +1,119 @@
+fileFormatVersion: 2
+guid: a16d617c12c4d48409c43415ec1486a5
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Toyota_R10
+    100002: Toyota_RA1
+    100004: Toyota_RA2
+    100006: Toyota_RA3
+    100008: Toyota_RA4
+    100010: Toyota_RA5
+    100012: Toyota_RA6
+    100014: Toyota_RA7
+    100016: Toyota_RA8
+    100018: Toyota_RA9
+    100020: Toyota_RAV
+    100022: //RootNode
+    100024: Wiper_ns
+    400000: Toyota_R10
+    400002: Toyota_RA1
+    400004: Toyota_RA2
+    400006: Toyota_RA3
+    400008: Toyota_RA4
+    400010: Toyota_RA5
+    400012: Toyota_RA6
+    400014: Toyota_RA7
+    400016: Toyota_RA8
+    400018: Toyota_RA9
+    400020: Toyota_RAV
+    400022: //RootNode
+    400024: Wiper_ns
+    2300000: Toyota_R10
+    2300002: Toyota_RA1
+    2300004: Toyota_RA2
+    2300006: Toyota_RA3
+    2300008: Toyota_RA4
+    2300010: Toyota_RA5
+    2300012: Toyota_RA6
+    2300014: Toyota_RA7
+    2300016: Toyota_RA8
+    2300018: Toyota_RA9
+    2300020: Wiper_ns
+    3300000: Toyota_R10
+    3300002: Toyota_RA1
+    3300004: Toyota_RA2
+    3300006: Toyota_RA3
+    3300008: Toyota_RA4
+    3300010: Toyota_RA5
+    3300012: Toyota_RA6
+    3300014: Toyota_RA7
+    3300016: Toyota_RA8
+    3300018: Toyota_RA9
+    3300020: Wiper_ns
+    4300000: Toyota_RA1
+    4300002: Toyota_RA2
+    4300004: Wiper_ns
+    4300006: Toyota_RA3
+    4300008: Toyota_RA4
+    4300010: Toyota_RA5
+    4300012: Toyota_RA6
+    4300014: Toyota_RA7
+    4300016: Toyota_RA8
+    4300018: Toyota_RA9
+    4300020: Toyota_R10
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

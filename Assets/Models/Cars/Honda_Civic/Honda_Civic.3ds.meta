@@ -1,0 +1,114 @@
+fileFormatVersion: 2
+guid: 077cd57b07b2c544fb1359f46d8ecb25
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Honda_Civ1
+    100002: Honda_Civ2
+    100004: Honda_Civ3
+    100006: Honda_Civ4
+    100008: Honda_Civ5
+    100010: Honda_Civ6
+    100012: Honda_Civ7
+    100014: Honda_Civ8
+    100016: Honda_Civ9
+    100018: Honda_Civi
+    100020: //RootNode
+    100022: Wiper_ns
+    400000: Honda_Civ1
+    400002: Honda_Civ2
+    400004: Honda_Civ3
+    400006: Honda_Civ4
+    400008: Honda_Civ5
+    400010: Honda_Civ6
+    400012: Honda_Civ7
+    400014: Honda_Civ8
+    400016: Honda_Civ9
+    400018: Honda_Civi
+    400020: //RootNode
+    400022: Wiper_ns
+    2300000: Honda_Civ1
+    2300002: Honda_Civ2
+    2300004: Honda_Civ3
+    2300006: Honda_Civ4
+    2300008: Honda_Civ5
+    2300010: Honda_Civ6
+    2300012: Honda_Civ7
+    2300014: Honda_Civ8
+    2300016: Honda_Civ9
+    2300018: Wiper_ns
+    3300000: Honda_Civ1
+    3300002: Honda_Civ2
+    3300004: Honda_Civ3
+    3300006: Honda_Civ4
+    3300008: Honda_Civ5
+    3300010: Honda_Civ6
+    3300012: Honda_Civ7
+    3300014: Honda_Civ8
+    3300016: Honda_Civ9
+    3300018: Wiper_ns
+    4300000: Wiper_ns
+    4300002: Honda_Civ1
+    4300004: Honda_Civ2
+    4300006: Honda_Civ3
+    4300008: Honda_Civ4
+    4300010: Honda_Civ5
+    4300012: Honda_Civ6
+    4300014: Honda_Civ7
+    4300016: Honda_Civ8
+    4300018: Honda_Civ9
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

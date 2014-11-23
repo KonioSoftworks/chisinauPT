@@ -1,0 +1,114 @@
+fileFormatVersion: 2
+guid: 1572ff4bc6e0df547a8f3e0340013650
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Opel_Meri1
+    100002: Opel_Meri2
+    100004: Opel_Meri3
+    100006: Opel_Meri4
+    100008: Opel_Meri5
+    100010: Opel_Meri6
+    100012: Opel_Meri7
+    100014: Opel_Meri8
+    100016: Opel_Meri9
+    100018: Opel_Meriv
+    100020: //RootNode
+    100022: Wiper_ns
+    400000: Opel_Meri1
+    400002: Opel_Meri2
+    400004: Opel_Meri3
+    400006: Opel_Meri4
+    400008: Opel_Meri5
+    400010: Opel_Meri6
+    400012: Opel_Meri7
+    400014: Opel_Meri8
+    400016: Opel_Meri9
+    400018: Opel_Meriv
+    400020: //RootNode
+    400022: Wiper_ns
+    2300000: Opel_Meri1
+    2300002: Opel_Meri2
+    2300004: Opel_Meri3
+    2300006: Opel_Meri4
+    2300008: Opel_Meri5
+    2300010: Opel_Meri6
+    2300012: Opel_Meri7
+    2300014: Opel_Meri8
+    2300016: Opel_Meri9
+    2300018: Wiper_ns
+    3300000: Opel_Meri1
+    3300002: Opel_Meri2
+    3300004: Opel_Meri3
+    3300006: Opel_Meri4
+    3300008: Opel_Meri5
+    3300010: Opel_Meri6
+    3300012: Opel_Meri7
+    3300014: Opel_Meri8
+    3300016: Opel_Meri9
+    3300018: Wiper_ns
+    4300000: Wiper_ns
+    4300002: Opel_Meri1
+    4300004: Opel_Meri2
+    4300006: Opel_Meri3
+    4300008: Opel_Meri4
+    4300010: Opel_Meri5
+    4300012: Opel_Meri6
+    4300014: Opel_Meri7
+    4300016: Opel_Meri8
+    4300018: Opel_Meri9
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

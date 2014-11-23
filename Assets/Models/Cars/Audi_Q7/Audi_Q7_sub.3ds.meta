@@ -1,0 +1,134 @@
+fileFormatVersion: 2
+guid: d36b56835df4701409f98b309cbcd778
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Audi_Q7
+    100002: Audi_Q7-Au
+    100004: Audi_Q7-en
+    100006: Audi_Q7-F_
+    100008: Audi_Q7-P1
+    100010: Audi_Q7-P2
+    100012: Audi_Q7-P3
+    100014: Audi_Q7-P4
+    100016: Audi_Q7-P5
+    100018: Audi_Q7-PA
+    100020: Audi_Q7-R1
+    100022: Audi_Q7-R2
+    100024: Audi_Q7-R3
+    100026: Audi_Q7-R_
+    100028: Audi_Q7-wi
+    100030: //RootNode
+    400000: Audi_Q7
+    400002: Audi_Q7-Au
+    400004: Audi_Q7-en
+    400006: Audi_Q7-F_
+    400008: Audi_Q7-P1
+    400010: Audi_Q7-P2
+    400012: Audi_Q7-P3
+    400014: Audi_Q7-P4
+    400016: Audi_Q7-P5
+    400018: Audi_Q7-PA
+    400020: Audi_Q7-R1
+    400022: Audi_Q7-R2
+    400024: Audi_Q7-R3
+    400026: Audi_Q7-R_
+    400028: Audi_Q7-wi
+    400030: //RootNode
+    2300000: Audi_Q7-Au
+    2300002: Audi_Q7-en
+    2300004: Audi_Q7-F_
+    2300006: Audi_Q7-P1
+    2300008: Audi_Q7-P2
+    2300010: Audi_Q7-P3
+    2300012: Audi_Q7-P4
+    2300014: Audi_Q7-P5
+    2300016: Audi_Q7-PA
+    2300018: Audi_Q7-R1
+    2300020: Audi_Q7-R2
+    2300022: Audi_Q7-R3
+    2300024: Audi_Q7-R_
+    2300026: Audi_Q7-wi
+    3300000: Audi_Q7-Au
+    3300002: Audi_Q7-en
+    3300004: Audi_Q7-F_
+    3300006: Audi_Q7-P1
+    3300008: Audi_Q7-P2
+    3300010: Audi_Q7-P3
+    3300012: Audi_Q7-P4
+    3300014: Audi_Q7-P5
+    3300016: Audi_Q7-PA
+    3300018: Audi_Q7-R1
+    3300020: Audi_Q7-R2
+    3300022: Audi_Q7-R3
+    3300024: Audi_Q7-R_
+    3300026: Audi_Q7-wi
+    4300000: Audi_Q7-en
+    4300002: Audi_Q7-wi
+    4300004: Audi_Q7-PA
+    4300006: Audi_Q7-P1
+    4300008: Audi_Q7-P2
+    4300010: Audi_Q7-P3
+    4300012: Audi_Q7-P4
+    4300014: Audi_Q7-P5
+    4300016: Audi_Q7-F_
+    4300018: Audi_Q7-Au
+    4300020: Audi_Q7-R_
+    4300022: Audi_Q7-R1
+    4300024: Audi_Q7-R2
+    4300026: Audi_Q7-R3
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

@@ -398,6 +398,10 @@ Prefab:
       propertyPath: score_text
       value: 
       objectReference: {fileID: 811286260}
+    - target: {fileID: 11400002, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
@@ -689,11 +693,10 @@ MonoBehaviour:
   availableCars:
   - {fileID: 100032, guid: 248c2fa8baff9ac40b7f95b68a2472a3, type: 2}
   - {fileID: 100038, guid: 54b10ac953cb20e40aa8b8d7a62d91d8, type: 2}
-  - {fileID: 0}
+  - {fileID: 100034, guid: 054f173a2e82a54458d52f476cd13f2b, type: 2}
   - {fileID: 100038, guid: 2d8a71cc4fbe0fa4ba35fe3d401d27f7, type: 2}
   - {fileID: 100036, guid: 19db99a0d70a2f2438ff4726a01b7079, type: 2}
   - {fileID: 100032, guid: b4aa84fe6b8e48f4c97d5bcb68485ab4, type: 2}
-  - {fileID: 100034, guid: 054f173a2e82a54458d52f476cd13f2b, type: 2}
 --- !u!1 &765148943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,7 +1538,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 183866952}
   m_GameObject: {fileID: 1744291601}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2acbd0bff926cf4a844c235b065c033, type: 3}
   m_Name: 
