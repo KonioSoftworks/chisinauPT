@@ -49,11 +49,12 @@ public class TrafficController : MonoBehaviour {
 
 	void generateCar (int band,float distance) {
 		Vector3 position = new Vector3(positions[band],0,distance);
-		GameObject car = availableCars[Random.Range(0,availableCars.Count)];		
-		//Quaternion rotation = new Quaternion(car.transform.rotation.x,car.transform.rotation.y + ((positions[band] > 0)? 0 : 180) ,car.transform.rotation.z,0);
+		GameObject car = availableCars[Random.Range(0,availableCars.Count)];
+		//Debug.Log(car.transform.rotation);
+		Quaternion rotation = new Quaternion(car.transform.rotation.x,car.transform.rotation.y + ((positions[band] > 0)? 0 : 180) ,car.transform.rotation.z,0);
+		Debug.Log(rotation);
 		if(car != null){
-			GameObject newCar = (GameObject)Instantiate(car,position,car.transform.rotation);
-			newCar.transform.Rotate(0,((positions[band] > 0)? 0 : 180),0);
+			GameObject newCar = (GameObject)Instantiate(car,position,rotation);
 		}
 	}
 
