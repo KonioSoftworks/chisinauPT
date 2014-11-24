@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
 
 	public float wheelRadius;
 	public GUIText score_text;
+	public GUIText speed;
 
 	public float hp;
 
@@ -102,7 +103,7 @@ public class PlayerController : MonoBehaviour {
 	void OnGUI(){
 		GUI.color = Color.yellow;
 		GUI.Box( new Rect(Screen.width - 210, 10, getBoxWidthByFuel(fuel), 20), "");
-
+		speed.text = "Speed: " + (Mathf.Round(getVelocity()* 3.6f)).ToString() + " km/h";
 		// Game Paused
 		if(isPaused){
 			GUI.color = new Color(1.0f,1.0f,1.0f, 1.0f);
