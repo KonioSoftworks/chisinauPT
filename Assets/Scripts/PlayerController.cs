@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour {
 		if (isMoving && !isPaused)
 			smoothMove();
 		int x = 0;
-		fuel = Mathf.Clamp(fuel - Time.deltaTime * 4,0,maxFuel);
+		fuel = Mathf.Clamp(fuel - Time.deltaTime * 3 *(rpm/maxRpm),0,maxFuel);
 
 		float gas = 1;
 		float brake = -1 * Mathf.Clamp(Input.GetAxis("Vertical"), -1, 0);
@@ -258,8 +258,10 @@ public class PlayerController : MonoBehaviour {
 			fuel = Mathf.Clamp(fuel+fuelCan,0,maxFuel);
 			Destroy(other.gameObject);
 		}
-		if(other.gameObject.tag == "Car")
-			gameOver = true;
+		if(other.gameObject.tag == "Car"){
+			if(getVelocity() > 20)
+				gameOver = true;
+		}
 	}
 
 	public float getVelocity() {

@@ -410,6 +410,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
+      propertyPath: maxRpm
+      value: 3500
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
@@ -1503,7 +1507,7 @@ MonoBehaviour:
   - .783999979
   axleRatio: 4.375
   minRpm: 1000
-  maxRpm: 2500
+  maxRpm: 3500
   wheelRadius: .379999995
   score_text: {fileID: 811286260}
   hp: 130

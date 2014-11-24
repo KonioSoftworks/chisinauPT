@@ -31,11 +31,14 @@ public class TrafficController : MonoBehaviour {
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		var cars = GameObject.FindGameObjectsWithTag("Car");
 		for(int i=0; i < cars.Length; i++){
-			if((getDistance(cars[i].transform.position,player.transform.position) > minDestroyDistance)){
+			if((getDistance(cars[i].transform.position,player.transform.position) > minDestroyDistance)
+			   || cars[i].transform.position.z < player.transform.position.z - 20){
 				Destroy(cars[i]);
 			}
 		}
 		for(int i=0;i < 4;i++){
+			if(Random.Range(0,3) == 0)
+				continue;
 			float randTime = Random.Range(1.5f,6f);
 			if(i > 1)
 				randTime += Random.Range(4.5f,9f);
@@ -50,7 +53,6 @@ public class TrafficController : MonoBehaviour {
 	void generateCar (int band,float distance) {
 		Vector3 position = new Vector3(positions[band],0,distance);
 		GameObject car = availableCars[Random.Range(0,availableCars.Count)];
-		//Debug.Log(car.transform.rotation);
 		Quaternion rotation = new Quaternion(car.transform.rotation.x,car.transform.rotation.y + ((positions[band] > 0)? 0 : 180) ,car.transform.rotation.z,0);
 		Debug.Log(rotation);
 		if(car != null){

@@ -7,7 +7,7 @@ public class CarController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		velocity = Random.Range(15f,25f);
+		velocity = Random.Range(10f,25f);
 		setVelocity(velocity);
 	}
 
