@@ -215,32 +215,40 @@ public class PlayerController : MonoBehaviour {
 
 	public void smoothMove(){
 		float[] newPositions = new float[]{0f,3.2f,6.8f,10f};
-		float x = transform.position.x;
-		float units = getVelocity()/200f; //kakaita huinea ! do not change this number
-		float k = (band > previousBand) ? 1 : -1;
-		float radius = getVelocity()/40f;
-		if (k > 0) {
-			float mediumX = (newPositions[band] + newPositions[previousBand])/2f;
-			if (x - positions[0] < mediumX){
-				transform.Rotate (Vector3.up, 1 * radius);
-			}else{
-				transform.Rotate (Vector3.up, -1 * radius);
-			}
-		} 
 
-		else {
-			float mediumX = (newPositions[previousBand] + newPositions[band])/2f;	
-			if (x - positions[0] < mediumX){
-				transform.Rotate (Vector3.up, 1 * radius);		
-			}else{
-				transform.Rotate (Vector3.up, -1 * radius);		
+		float x = transform.position.x;
+		float units = 0.2f;
+		float angle = 30f;
+		if( getVelocity() < 30 ){
+			angle = 15f;
+			units = 0.1f;
+		}
+		float k = (band > previousBand) ? 1 : -1;
+
+		if (band == previousBand){
+			transform.rotation = Quaternion.Euler(0,0,0);
+		} else {
+			float radius = angle / (Mathf.Abs(newPositions[band] - newPositions[previousBand])/units);
+			if (k > 0) {
+				float mediumX = (newPositions[band] + newPositions[previousBand])/2f;
+				if (x - positions[0] < mediumX){
+					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y + radius,0);
+				}else{	
+					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y - radius,0);
+				}
+			} else {
+				float mediumX = (newPositions[previousBand] + newPositions[band])/2f;	
+				if (x - positions[0] < mediumX){				
+					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y + radius,0);
+				}else{			
+					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y - radius,0);
+				}
 			}
 		}
 		x += ((x < positions[band]) ? 1f  : -1f) * units;
 		Vector3 newPos = new Vector3 (x, transform.position.y, transform.position.z);
 		transform.position = newPos;
-
-		if (Mathf.Abs (x - positions [band]) < units) {
+		if (Mathf.Abs (x - positions [band]) < 0.2f) {
 			Vector3 Pos = new Vector3 (positions[band], transform.position.y, transform.position.z);
 			transform.position = Pos;
 			transform.rotation = new Quaternion(0,0,0,0);

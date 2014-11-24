@@ -54,7 +54,6 @@ public class TrafficController : MonoBehaviour {
 		Vector3 position = new Vector3(positions[band],0,distance);
 		GameObject car = availableCars[Random.Range(0,availableCars.Count)];
 		Quaternion rotation = new Quaternion(car.transform.rotation.x,car.transform.rotation.y + ((positions[band] > 0)? 0 : 180) ,car.transform.rotation.z,0);
-		Debug.Log(rotation);
 		if(car != null){
 			GameObject newCar = (GameObject)Instantiate(car,position,rotation);
 		}
