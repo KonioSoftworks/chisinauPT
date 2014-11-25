@@ -44,8 +44,8 @@ LightmapSettings:
     m_TextureHeight: 1024
     m_BounceBoost: 1
     m_BounceIntensity: 1
-    m_SkyLightColor: {r: .860000014, g: .930000007, b: 1, a: 1}
-    m_SkyLightIntensity: 0
+    m_SkyLightColor: {r: .0729887635, g: .5328179, b: .992647052, a: 1}
+    m_SkyLightIntensity: 100
     m_Quality: 0
     m_Bounces: 1
     m_FinalGatherRays: 1000
