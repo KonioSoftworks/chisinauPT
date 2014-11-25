@@ -72,10 +72,10 @@ public class PlayerController : MonoBehaviour {
 		money = 0;
 		Load();
 		//FMOD
-		Engine = FMOD_StudioSystem.instance.GetEvent ("event:/v2");
-		Engine.getParameter ("RPM", out EngineRPM);
-		Engine.getParameter ("Load",out EngineLoad);
-		Engine.start();
+		//Engine = FMOD_StudioSystem.instance.GetEvent ("event:/v2");
+		//Engine.getParameter ("RPM", out EngineRPM);
+		//Engine.getParameter ("Load",out EngineLoad);
+		//Engine.start();
 	}
 
 	void Save(){
@@ -120,8 +120,8 @@ public class PlayerController : MonoBehaviour {
 		}
 		// Game Over
 		if(gameOver){
-			Engine.stop (0);
-			Engine.release ();
+			//Engine.stop (0);
+			//Engine.release ();
 			Time.timeScale = 0;
 			GUI.color = new Color(1.0f,1.0f,1.0f, 1.0f);
 			GUI.Box(new Rect(0,0, Screen.width, Screen.height), "");
@@ -199,8 +199,8 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKeyUp("left") || Input.GetKeyUp("right"))
 			pressed = false;
 		rigidbody.velocity = new Vector3(0,0,getVelocity());
-		EngineRPM.setValue(rpm);
-		EngineLoad.setValue(gear * (1/GearRatios.Count));
+		//EngineRPM.setValue(rpm);
+		//EngineLoad.setValue(gear * (1/GearRatios.Count));
 	}
 
 	public void move(int x) {
