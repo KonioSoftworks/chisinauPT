@@ -7,22 +7,13 @@ public class Menu : MonoBehaviour {
 	float posy_play = Screen.height / 2 - 20;
 	float posy_exit = Screen.height / 2 + 50;
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void ChangeScene(){
+		Application.LoadLevel("scene");
 	}
 
-	void OnGUI(){
-		if(GUI.Button(new Rect(posx_play, posy_play ,100,40),"Play!") ){
-			Application.LoadLevel("scene");
-		}
-		if(GUI.Button( new Rect(posx_play, posy_exit, 100, 40),"Exit") ) {
-			Application.Quit();
-		}
+	public void Exit(){
+		Application.Quit();
 	}
 
 }
