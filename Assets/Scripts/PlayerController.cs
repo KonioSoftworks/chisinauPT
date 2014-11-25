@@ -24,14 +24,7 @@ public class PlayerController : MonoBehaviour {
 	public float converterRatio = 3f;
 
 	private float rpm;
-	private float fuel = 100;
-	public float maxFuel = 100;
 	private int gear;
-
-	//fuel
-
-	private int fuelCan = 20;
-
 
 	// Player Data -> To Save
 
@@ -101,8 +94,6 @@ public class PlayerController : MonoBehaviour {
 
 
 	void OnGUI(){
-		GUI.color = Color.yellow;
-		GUI.Box( new Rect(Screen.width - 210, 10, getBoxWidthByFuel(fuel), 20), "");
 		speed.text = "Speed: " + (Mathf.Round(getVelocity()* 3.6f)).ToString() + " km/h";
 		// Game Paused
 		if(isPaused){
@@ -139,13 +130,7 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-	int getBoxWidthByFuel(float fuel){
-		return Mathf.RoundToInt((200/maxFuel) * fuel);
-	}
-
 	void Update() {
-		if(fuel <= 0)
-			gameOver = true;
 		if(Input.GetKeyDown(KeyCode.Escape)){
 			if(Time.timeScale != 0 ){
 				isPaused = true;
@@ -160,7 +145,6 @@ public class PlayerController : MonoBehaviour {
 		if (isMoving && !isPaused)
 			smoothMove();
 		int x = 0;
-		fuel = Mathf.Clamp(fuel - Time.deltaTime * 3 *(rpm/maxRpm),0,maxFuel);
 
 		float gas = 1;
 		float brake = -1 * Mathf.Clamp(Input.GetAxis("Vertical"), -1, 0);
@@ -266,10 +250,6 @@ public class PlayerController : MonoBehaviour {
 			money += 3;
 			score_text.text = "Money : " + money.ToString() + " lei";
 			other.gameObject.SetActive(false);
-		}
-		if(other.gameObject.tag == "Fuel"){
-			fuel = Mathf.Clamp(fuel+fuelCan,0,maxFuel);
-			Destroy(other.gameObject);
 		}
 		if(other.gameObject.tag == "Car"){
 				gameOver = true;

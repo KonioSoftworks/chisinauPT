@@ -30,11 +30,6 @@ public class RoadGeneratorScript : MonoBehaviour {
 	
 	float[] bandsPositions = new float[]{-5f,-1.8f,1.8f,5f}; // coins positions
 
-	//fuel can generating
-
-	public GameObject fuelCan;
-	private float distanceBetweenCans = 100f;
-	private float distanceCans = 0f;
 
 	void Start () {
 		Vector3 carV = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -49,7 +44,6 @@ public class RoadGeneratorScript : MonoBehaviour {
 			CoinRow(CoinsInRow,Random.Range(0,4));
 		}
 		renderBuildings();
-		renderFuelCan();
 	}
 
 	void Update () {
@@ -72,7 +66,6 @@ public class RoadGeneratorScript : MonoBehaviour {
 			}
 		}
 		renderBuildings();
-		renderFuelCan();
 	}
 
 	void createNewPlane(){
@@ -124,12 +117,4 @@ public class RoadGeneratorScript : MonoBehaviour {
 		}
 	}
 
-	void renderFuelCan(){
-		while(distanceCans < distance){
-			distanceCans += distanceBetweenCans + Random.Range(0,100);
-			int band = Random.Range(0,4);
-			Vector3 position = new Vector3(bandsPositions[band],0,distanceCans);
-			Instantiate(fuelCan,position,fuelCan.transform.rotation);
-		}
-	}
 }

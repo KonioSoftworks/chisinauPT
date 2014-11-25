@@ -424,6 +424,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
+    - {fileID: 11400002, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6af15357b90aba5458c9fd2a1bb32d62, type: 2}
   m_RootGameObject: {fileID: 1744291601}
   m_IsPrefabParent: 0
@@ -596,7 +597,6 @@ MonoBehaviour:
   availableBuildings:
   - {fileID: 100000, guid: a3b62ad141f8f6540b3a2aabc24e1fdf, type: 2}
   - {fileID: 100000, guid: 92ce6c56c1055e74483b7875cfc0c18d, type: 2}
-  fuelCan: {fileID: 100000, guid: 118c255e825284e49abcf4d4e26b13dc, type: 2}
 --- !u!1 &740130734
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +663,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 748872559}
-  - 114: {fileID: 748872560}
   - 114: {fileID: 748872561}
   m_Layer: 0
   m_Name: Road
@@ -684,18 +683,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!114 &748872560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 748872558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d48795674752494ba3460ffbdcf52be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pluginPaths: []
 --- !u!114 &748872561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,7 +1524,6 @@ GameObject:
   - 95: {fileID: 1744291603}
   - 54: {fileID: 1744291605}
   - 114: {fileID: 1744291604}
-  - 114: {fileID: 1744291607}
   - 65: {fileID: 1744291606}
   m_Layer: 0
   m_Name: Rutiera
@@ -1602,7 +1588,6 @@ MonoBehaviour:
   speed: {fileID: 1712650079}
   hp: 130
   converterRatio: 3
-  maxFuel: 100
   money: 0
   car: 0
 --- !u!54 &1744291605
@@ -1633,21 +1618,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .150000006, y: .300000012, z: .600000024}
   m_Center: {x: 0, y: .150000006, z: 0}
---- !u!114 &1744291607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: 6af15357b90aba5458c9fd2a1bb32d62,
-    type: 2}
-  m_PrefabInternal: {fileID: 183866952}
-  m_GameObject: {fileID: 1744291601}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2acbd0bff926cf4a844c235b065c033, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  asset: {fileID: 11400000, guid: 5be49b8f505fc7d48b02e552ce182d84, type: 2}
-  path: '{ca47ac12-d64c-4f5d-9f19-7977d0055f95}'
-  startEventOnAwake: 0
 --- !u!1 &1800279651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,10 +1737,10 @@ Light:
   m_Shadows:
     m_Type: 0
     m_Resolution: 0
-    m_Strength: 1
+    m_Strength: .189999998
     m_Bias: .0500000007
-    m_Softness: 4
-    m_SoftnessFade: 1
+    m_Softness: 1.66999996
+    m_SoftnessFade: .460000008
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
@@ -1779,7 +1749,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 0
+  m_Lightmapping: 1
   m_ShadowSamples: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1792,7 +1762,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1884122578}
   m_LocalRotation: {x: -.060549248, y: .208565086, z: -.964384079, w: .150989398}
-  m_LocalPosition: {x: 1.16999996, y: 30.8400002, z: -70.3099976}
+  m_LocalPosition: {x: -.209999993, y: 30.4899998, z: -70.1900024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 692422596}
