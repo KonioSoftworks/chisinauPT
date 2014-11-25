@@ -61,9 +61,9 @@ public class PlayerController : MonoBehaviour {
 
 	//FMOD
 
-	FMOD.Studio.EventInstance Engine;
-	FMOD.Studio.ParameterInstance EngineRPM;
-	FMOD.Studio.ParameterInstance EngineLoad;
+	//FMOD.Studio.EventInstance Engine;
+	//FMOD.Studio.ParameterInstance EngineRPM;
+	//FMOD.Studio.ParameterInstance EngineLoad;
 
 	void Start() {
 		Time.timeScale  = 1;
@@ -218,31 +218,35 @@ public class PlayerController : MonoBehaviour {
 		float[] newPositions = new float[]{0f,3.2f,6.8f,10f};
 
 		float x = transform.position.x;
-		float units = 0.2f;
-		float angle = 30f;
-		if( getVelocity() < 30 ){
-			angle = 15f;
-			units = 0.1f;
-		}
+		float coefficient = 0;
+		if(getVelocity() < 10)
+			coefficient = (getVelocity()/20f);		
+		else
+			coefficient = (getVelocity()/40f);
+
+		float units = 0.13f * coefficient;
+		float angle = 20f * coefficient;
+		float angle2 = 20f * coefficient;
 		float k = (band > previousBand) ? 1 : -1;
 
 		if (band == previousBand){
 			transform.rotation = Quaternion.Euler(0,0,0);
 		} else {
 			float radius = angle / (Mathf.Abs(newPositions[band] - newPositions[previousBand])/units);
+			float radius2 = angle2 / (Mathf.Abs(newPositions[band] - newPositions[previousBand])/units);
 			if (k > 0) {
 				float mediumX = (newPositions[band] + newPositions[previousBand])/2f;
 				if (x - positions[0] < mediumX){
-					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y + radius,0);
+					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y + radius,transform.rotation.eulerAngles.z + radius2);
 				}else{	
-					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y - radius,0);
+					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y - radius,transform.rotation.eulerAngles.z - radius2);
 				}
 			} else {
 				float mediumX = (newPositions[previousBand] + newPositions[band])/2f;	
 				if (x - positions[0] < mediumX){				
-					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y + radius,0);
+					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y + radius,transform.rotation.eulerAngles.z + radius2);
 				}else{			
-					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y - radius,0);
+					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y - radius,transform.rotation.eulerAngles.z - radius2);
 				}
 			}
 		}
@@ -268,7 +272,6 @@ public class PlayerController : MonoBehaviour {
 			Destroy(other.gameObject);
 		}
 		if(other.gameObject.tag == "Car"){
-			if(getVelocity() > 20)
 				gameOver = true;
 		}
 	}
