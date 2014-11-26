@@ -597,6 +597,8 @@ MonoBehaviour:
   availableBuildings:
   - {fileID: 100000, guid: a3b62ad141f8f6540b3a2aabc24e1fdf, type: 2}
   - {fileID: 100000, guid: 92ce6c56c1055e74483b7875cfc0c18d, type: 2}
+  - {fileID: 100000, guid: 4851b058c03037c48957ac95abce8851, type: 2}
+  - {fileID: 100000, guid: 6617ae5d1807c3241bf95d8be47d6682, type: 2}
 --- !u!1 &740130734
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +707,9 @@ MonoBehaviour:
   - {fileID: 100038, guid: 2d8a71cc4fbe0fa4ba35fe3d401d27f7, type: 2}
   - {fileID: 100036, guid: 19db99a0d70a2f2438ff4726a01b7079, type: 2}
   - {fileID: 100032, guid: b4aa84fe6b8e48f4c97d5bcb68485ab4, type: 2}
+  - {fileID: 100006, guid: b2ca787002312c34dafddeace5081b9c, type: 2}
+  rareCars:
+  - {fileID: 100016, guid: 0df94995430ae1649bf5b4dc8b1317e6, type: 2}
 --- !u!1 &765148943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,7 +1735,7 @@ Light:
   serializedVersion: 3
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .300000012
+  m_Intensity: .200000003
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10

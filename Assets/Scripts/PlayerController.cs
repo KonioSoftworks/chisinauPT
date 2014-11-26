@@ -208,7 +208,7 @@ public class PlayerController : MonoBehaviour {
 		else
 			coefficient = (getVelocity()/40f);
 
-		float units = 0.13f * coefficient;
+		float units = 0.13f * coefficient * 60 * Time.deltaTime;
 		float angle = 20f * coefficient;
 		float angle2 = 20f * coefficient;
 		float k = (band > previousBand) ? 1 : -1;

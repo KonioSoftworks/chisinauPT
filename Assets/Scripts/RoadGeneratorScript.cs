@@ -111,7 +111,7 @@ public class RoadGeneratorScript : MonoBehaviour {
 		while(sideDistance <= distance){
 			GameObject obj = availableBuildings[Random.Range(0,availableBuildings.Count)];
 			BuildingController objController = (BuildingController) obj.GetComponent(typeof(BuildingController));
-			Vector3 position = new Vector3(n*pos+objController.distanceFromRoad,objController.heightFromRoad,sideDistance);			
+			Vector3 position = new Vector3(n*pos+pos*objController.distanceFromRoad,objController.heightFromRoad,sideDistance);			
 			buildings.Add((GameObject)Instantiate(obj,position,obj.transform.rotation));
 			sideDistance += objController.distanceFromOthers + Random.Range(0,10);
 		}
