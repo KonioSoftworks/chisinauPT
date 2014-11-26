@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour {
 
@@ -51,6 +52,9 @@ public class PlayerController : MonoBehaviour {
 	float posx_resume = Screen.width / 2 -50;
 	float posy_resume = Screen.height / 2 - 20;
 	float posy_exit = Screen.height / 2 + 50;
+	CanvasGroup canvas;
+	CanvasGroup canvas2;
+	List<CanvasGroup> canvasGroups;
 
 	//FMOD
 
@@ -58,12 +62,25 @@ public class PlayerController : MonoBehaviour {
 	//FMOD.Studio.ParameterInstance EngineRPM;
 	//FMOD.Studio.ParameterInstance EngineLoad;
 
+
 	void Start() {
 		Time.timeScale  = 1;
 		rpm = minRpm;
 		gear = 0;
 		money = 0;
 		Load();
+		canvas = new CanvasGroup();
+		canvas = GameObject.FindObjectOfType<CanvasGroup>();
+		canvas.alpha = 0f;
+		canvas2 = new CanvasGroup();
+		canvas2 = GameObject.FindObjectOfType<CanvasGroup>();
+		canvas2.alpha = 0f;
+		canvasGroups = new List<CanvasGroup>();
+		canvasGroups = GameObject.FindObjectsOfType<CanvasGroup>().ToList();
+		canvasGroups[0].alpha = 0f;
+		canvasGroups[1].alpha = 0f;
+	
+
 		//FMOD
 		//Engine = FMOD_StudioSystem.instance.GetEvent ("event:/v2");
 		//Engine.getParameter ("RPM", out EngineRPM);
@@ -91,41 +108,39 @@ public class PlayerController : MonoBehaviour {
 			file.Close();
 		}
 	}
+	
+	public void Resume(){
+		isPaused = false;
+		Time.timeScale = 1;
+		//canvas.alpha = 0f;
+		canvasGroups[1].alpha = 0f;
+	}
 
-
+	public void Exit(){
+		Application.LoadLevel("menu");
+	}
+	public void Retry(){
+		Application.LoadLevel("scene");
+	}
+	
 	void OnGUI(){
 		speed.text = "Speed: " + (Mathf.Round(getVelocity()* 3.6f)).ToString() + " km/h";
 		// Game Paused
 		if(isPaused){
-			GUI.color = new Color(1.0f,1.0f,1.0f, 1.0f);
-			GUI.Box(new Rect(0,0, Screen.width, Screen.height), "");
-			if(GUI.Button(new Rect(posx_resume, posy_resume ,100,40),"Resume") ){
-				isPaused = false;
-				Time.timeScale = 1;
-			}
-			if(GUI.Button( new Rect(posx_resume, posy_exit, 100, 40),"Exit") ) {
-				Save ();
-				Application.LoadLevel("menu");
-			}
-
+			isPaused = false;
+			Time.timeScale = 0;
+			//canvas.alpha = 1f;
+			canvasGroups[1].alpha = 1f;
+			
 		}
 		// Game Over
 		if(gameOver){
 			//Engine.stop (0);
 			//Engine.release ();
 			Time.timeScale = 0;
-			GUI.color = new Color(1.0f,1.0f,1.0f, 1.0f);
-			GUI.Box(new Rect(0,0, Screen.width, Screen.height), "");
-
-			if(GUI.Button(new Rect(posx_resume, posy_resume ,100,40),"Try again") ){
-				isPaused = false;
-				Time.timeScale = 1;
-				Application.LoadLevel("scene");
-			}
-			if(GUI.Button( new Rect(posx_resume, posy_exit, 100, 40),"Exit") ) {
-				Save ();
-				Application.LoadLevel("menu");
-			}
+			isPaused = false;
+			//canvas2.alpha = 1f;
+			canvasGroups[0].alpha = 1f;
 		}
 
 	}
@@ -135,10 +150,14 @@ public class PlayerController : MonoBehaviour {
 			if(Time.timeScale != 0 ){
 				isPaused = true;
 				Time.timeScale = 0;
+				//canvas.alpha = 0f;
+				canvasGroups[1].alpha = 1f;
 				Save ();
 			}else{ 
 				Time.timeScale = 1;
 				isPaused = false;
+				//canvas.alpha = 0f;
+				canvasGroups[1].alpha = 0f;
 			}
 		}
 

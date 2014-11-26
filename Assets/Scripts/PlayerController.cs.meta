@@ -2,7 +2,12 @@ fileFormatVersion: 2
 guid: 8d1feab3fff7e074c907decf0dd7fd1d
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - score_text: {instanceID: 0}
+  - speed: {instanceID: 0}
+  - resume: {fileID: 2800000, guid: 78cc3310eaca820439eac3452660ed02, type: 3}
+  - exit: {fileID: 2800000, guid: cf0f8e6b315c4424ebec1f3d0b860a9a, type: 3}
+  - retry: {fileID: 2800000, guid: b2517b992783df14091600ae43cc1ac5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

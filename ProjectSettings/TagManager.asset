@@ -9,6 +9,8 @@ TagManager:
   - Coins
   - Fuel
   - Car
+  - Canvas1
+  - Canvas2
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
