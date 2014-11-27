@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: 6f4268a9660c26e418bb62b9eeb4cf47
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BLACK BLAC
+    100004: BLACK MATT
+    100006: BLACK PLAS
+    100008: CAR GLASS
+    100010: CHROME
+    100012: GREEN PLST
+    100014: GREY DARK
+    100016: GREY LIGHT
+    100018: LIGHT GLAS
+    100020: LIGHT ORAN
+    100022: LIGHT RED
+    100024: LIGHT WHIT
+    100026: RED PLASTI
+    100028: WHEEL ALUM
+    100030: WHITE BODY
+    100032: WHITE-1
+    400000: //RootNode
+    400002: BLACK BLAC
+    400004: BLACK MATT
+    400006: BLACK PLAS
+    400008: CAR GLASS
+    400010: CHROME
+    400012: GREEN PLST
+    400014: GREY DARK
+    400016: GREY LIGHT
+    400018: LIGHT GLAS
+    400020: LIGHT ORAN
+    400022: LIGHT RED
+    400024: LIGHT WHIT
+    400026: RED PLASTI
+    400028: WHEEL ALUM
+    400030: WHITE BODY
+    400032: WHITE-1
+    2300000: BLACK BLAC
+    2300002: BLACK MATT
+    2300004: BLACK PLAS
+    2300006: CAR GLASS
+    2300008: CHROME
+    2300010: GREEN PLST
+    2300012: GREY DARK
+    2300014: GREY LIGHT
+    2300016: LIGHT GLAS
+    2300018: LIGHT ORAN
+    2300020: LIGHT RED
+    2300022: LIGHT WHIT
+    2300024: RED PLASTI
+    2300026: WHEEL ALUM
+    2300028: WHITE BODY
+    2300030: WHITE-1
+    3300000: BLACK BLAC
+    3300002: BLACK MATT
+    3300004: BLACK PLAS
+    3300006: CAR GLASS
+    3300008: CHROME
+    3300010: GREEN PLST
+    3300012: GREY DARK
+    3300014: GREY LIGHT
+    3300016: LIGHT GLAS
+    3300018: LIGHT ORAN
+    3300020: LIGHT RED
+    3300022: LIGHT WHIT
+    3300024: RED PLASTI
+    3300026: WHEEL ALUM
+    3300028: WHITE BODY
+    3300030: WHITE-1
+    4300000: BLACK BLAC
+    4300002: BLACK MATT
+    4300004: BLACK PLAS
+    4300006: CAR GLASS
+    4300008: CHROME
+    4300010: GREEN PLST
+    4300012: GREY DARK
+    4300014: GREY LIGHT
+    4300016: LIGHT GLAS
+    4300018: LIGHT ORAN
+    4300020: LIGHT RED
+    4300022: LIGHT WHIT
+    4300024: RED PLASTI
+    4300026: WHEEL ALUM
+    4300028: WHITE BODY
+    4300030: WHITE-1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text;
 
 public class PlayerController : MonoBehaviour {
 
@@ -48,6 +50,10 @@ public class PlayerController : MonoBehaviour {
 
 	private bool isMoving = false;
 
+	//
+	string user = " Konio ";
+
+
 	// GUI
 	float posx_resume = Screen.width / 2 -50;
 	float posy_resume = Screen.height / 2 - 20;
@@ -55,6 +61,7 @@ public class PlayerController : MonoBehaviour {
 	CanvasGroup canvas;
 	CanvasGroup canvas2;
 	List<CanvasGroup> canvasGroups;
+	ServerScript server;
 
 	//FMOD
 
@@ -64,6 +71,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	void Start() {
+		server = new ServerScript();
 		Time.timeScale  = 1;
 		rpm = minRpm;
 		gear = 0;
@@ -80,6 +88,12 @@ public class PlayerController : MonoBehaviour {
 		canvasGroups[0].alpha = 0f;
 		canvasGroups[1].alpha = 0f;
 	
+
+		//FMOD
+		//Engine = FMOD_StudioSystem.instance.GetEvent ("event:/v2");
+		//Engine.getParameter ("RPM", out EngineRPM);
+		//Engine.getParameter ("Load",out EngineLoad);
+		//Engine.start();
 	}
 
 	void Save(){
@@ -112,13 +126,16 @@ public class PlayerController : MonoBehaviour {
 
 	public void Exit(){
 		Application.LoadLevel("menu");
+		server.save("Konio", money);
 	}
 	public void Retry(){
 		Application.LoadLevel("scene");
+		server.save("Konio", money);
+
 	}
 	
 	void OnGUI(){
-		speed.text = "Speed: " + (Mathf.Round(getVelocity()* 3f)).ToString() + " km/h"; // 3 fake constant instead of 3.6
+		speed.text = "Speed: " + (Mathf.Round(getVelocity()* 3.6f)).ToString() + " km/h";
 		// Game Paused
 		if(isPaused){
 			isPaused = false;
@@ -129,11 +146,13 @@ public class PlayerController : MonoBehaviour {
 		}
 		// Game Over
 		if(gameOver){
-			audio.Stop();
+			//Engine.stop (0);
+			//Engine.release ();
 			Time.timeScale = 0;
 			isPaused = false;
 			//canvas2.alpha = 1f;
 			canvasGroups[0].alpha = 1f;
+
 		}
 
 	}
@@ -173,14 +192,11 @@ public class PlayerController : MonoBehaviour {
 		if(rpm == maxRpm && gear < GearRatios.Count-1){
 			gear++;
 			rpm = getRpmByVelocity() + 0.01f;
-			audio.Stop();
-			audio.PlayDelayed(0.01f);
 		}
 		if(rpm == minRpm && gear > 0){
 			gear--;
 			rpm = getRpmByVelocity() - 0.01f;
-			audio.Stop();
-			audio.PlayDelayed(0.01f);
+			//Engine.stop();
 		}
 
 		if(Input.GetKeyDown("left")){
@@ -193,11 +209,13 @@ public class PlayerController : MonoBehaviour {
 			x++;				
 			move (x);
 			pressed = true;
+
 		}
 		if(Input.GetKeyUp("left") || Input.GetKeyUp("right"))
 			pressed = false;
 		rigidbody.velocity = new Vector3(0,0,getVelocity());
-		audio.pitch = 1 + (rpm/maxRpm);
+		//EngineRPM.setValue(rpm);
+		//EngineLoad.setValue(gear * (1/GearRatios.Count));
 	}
 
 	public void move(int x) {
@@ -276,7 +294,7 @@ public class PlayerController : MonoBehaviour {
 	public float getRpmByVelocity(){
 		return rigidbody.velocity.z * axleRatio * GearRatios[gear] / (0.104f * wheelRadius); 
 	}
-
+	
 }
 
 [System.Serializable]
