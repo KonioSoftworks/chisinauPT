@@ -31,7 +31,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 1
@@ -181,7 +181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100022
 GameObject:
   m_ObjectHideFlags: 1
@@ -198,7 +198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100024
 GameObject:
   m_ObjectHideFlags: 1
@@ -225,7 +225,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400026}
   - 33: {fileID: 3300038}
-  - 64: {fileID: 6400000}
   - 23: {fileID: 2300038}
   - 108: {fileID: 10800002}
   m_Layer: 0
@@ -249,7 +248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &100030
 GameObject:
   m_ObjectHideFlags: 1
@@ -346,7 +345,7 @@ GameObject:
   - 95: {fileID: 9500000}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400002}
+  - 65: {fileID: 6500000}
   m_Layer: 0
   m_Name: Rutiera
   m_TagString: Player
@@ -580,8 +579,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.056806948, y: .175724238, z: -.300499856}
+  m_LocalRotation: {x: .0348994955, y: 0, z: 0, w: .999390841}
+  m_LocalPosition: {x: -.0573309436, y: .177215844, z: -.299513608}
   m_LocalScale: {x: .0300000012, y: .0299999975, z: .0300000012}
   m_Children: []
   m_Father: {fileID: 400024}
@@ -629,7 +628,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100020}
   m_LocalRotation: {x: -1.13133396e-08, y: .965925813, z: -.258819044, w: -4.22219593e-08}
-  m_LocalPosition: {x: .0636363998, y: .151081592, z: .232659832}
+  m_LocalPosition: {x: .0636363998, y: .150552467, z: .231743366}
   m_LocalScale: {x: .0299999993, y: .0299999993, z: .0299999993}
   m_Children: []
   m_Father: {fileID: 400024}
@@ -1444,19 +1443,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &6400000
-MeshCollider:
+--- !u!65 &6500000
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100026}
+  m_GameObject: {fileID: 100044}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: .150000006, y: .300000012, z: .600000024}
+  m_Center: {x: 0, y: .150000006, z: 0}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -1517,8 +1515,8 @@ Light:
   serializedVersion: 3
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .25999999
-  m_Range: 10
+  m_Intensity: .959999979
+  m_Range: 1
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -1666,24 +1664,14 @@ MonoBehaviour:
   - .783999979
   axleRatio: 4.375
   minRpm: 1000
-  maxRpm: 2500
+  maxRpm: 3500
   wheelRadius: .379999995
+  score_text: {fileID: 0}
+  speed: {fileID: 0}
   hp: 130
   converterRatio: 3
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2acbd0bff926cf4a844c235b065c033, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  asset: {fileID: 11400000, guid: 5be49b8f505fc7d48b02e552ce182d84, type: 2}
-  path: '{ca47ac12-d64c-4f5d-9f19-7977d0055f95}'
-  startEventOnAwake: 0
+  money: 0
+  car: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

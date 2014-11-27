@@ -80,12 +80,6 @@ public class PlayerController : MonoBehaviour {
 		canvasGroups[0].alpha = 0f;
 		canvasGroups[1].alpha = 0f;
 	
-
-		//FMOD
-		//Engine = FMOD_StudioSystem.instance.GetEvent ("event:/v2");
-		//Engine.getParameter ("RPM", out EngineRPM);
-		//Engine.getParameter ("Load",out EngineLoad);
-		//Engine.start();
 	}
 
 	void Save(){
@@ -124,7 +118,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void OnGUI(){
-		speed.text = "Speed: " + (Mathf.Round(getVelocity()* 3.6f)).ToString() + " km/h";
+		speed.text = "Speed: " + (Mathf.Round(getVelocity()* 3f)).ToString() + " km/h"; // 3 fake constant instead of 3.6
 		// Game Paused
 		if(isPaused){
 			isPaused = false;
@@ -135,8 +129,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		// Game Over
 		if(gameOver){
-			//Engine.stop (0);
-			//Engine.release ();
+			audio.Stop();
 			Time.timeScale = 0;
 			isPaused = false;
 			//canvas2.alpha = 1f;
@@ -180,11 +173,14 @@ public class PlayerController : MonoBehaviour {
 		if(rpm == maxRpm && gear < GearRatios.Count-1){
 			gear++;
 			rpm = getRpmByVelocity() + 0.01f;
+			audio.Stop();
+			audio.PlayDelayed(0.01f);
 		}
 		if(rpm == minRpm && gear > 0){
 			gear--;
 			rpm = getRpmByVelocity() - 0.01f;
-			//Engine.stop();
+			audio.Stop();
+			audio.PlayDelayed(0.01f);
 		}
 
 		if(Input.GetKeyDown("left")){
@@ -197,13 +193,11 @@ public class PlayerController : MonoBehaviour {
 			x++;				
 			move (x);
 			pressed = true;
-
 		}
 		if(Input.GetKeyUp("left") || Input.GetKeyUp("right"))
 			pressed = false;
 		rigidbody.velocity = new Vector3(0,0,getVelocity());
-		//EngineRPM.setValue(rpm);
-		//EngineLoad.setValue(gear * (1/GearRatios.Count));
+		audio.pitch = 1 + (rpm/maxRpm);
 	}
 
 	public void move(int x) {
@@ -282,6 +276,7 @@ public class PlayerController : MonoBehaviour {
 	public float getRpmByVelocity(){
 		return rigidbody.velocity.z * axleRatio * GearRatios[gear] / (0.104f * wheelRadius); 
 	}
+
 }
 
 [System.Serializable]

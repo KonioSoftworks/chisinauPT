@@ -35,7 +35,7 @@ public class TrafficController : MonoBehaviour {
 		var cars = GameObject.FindGameObjectsWithTag("Car");
 		for(int i=0; i < cars.Length; i++){
 			if((getDistance(cars[i].transform.position,player.transform.position) > minDestroyDistance)
-			   || cars[i].transform.position.z < player.transform.position.z - 20){
+			   || cars[i].transform.position.z < player.transform.position.z - 30f){
 				Destroy(cars[i]);
 			}
 		}
