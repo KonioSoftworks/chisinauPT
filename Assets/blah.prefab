@@ -13,7 +13,7 @@ GameObject:
   - 23: {fileID: 2300000}
   - 54: {fileID: 5400000}
   m_Layer: 0
-  m_Name: Coin
+  m_Name: blah
   m_TagString: Coins
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
