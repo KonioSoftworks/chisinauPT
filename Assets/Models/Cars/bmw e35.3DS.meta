@@ -1,0 +1,127 @@
+fileFormatVersion: 2
+guid: 5e6f2c02113220845a222ad3c68ecb3d
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: BLACK MATT
+    100002: BLACK PLAS
+    100004: BLUE
+    100006: //RootNode
+    100008: CAR GLASS
+    100010: CHROME
+    100012: GRAY-MATTE
+    100014: LIGHT GLAS
+    100016: LIGHT ORAN
+    100018: LIGHT RED
+    100020: LIGHT WHIT
+    100022: WHEEL ALUM
+    100024: WHITE BODY
+    100026: WHITE-1
+    400000: BLACK MATT
+    400002: BLACK PLAS
+    400004: BLUE
+    400006: //RootNode
+    400008: CAR GLASS
+    400010: CHROME
+    400012: GRAY-MATTE
+    400014: LIGHT GLAS
+    400016: LIGHT ORAN
+    400018: LIGHT RED
+    400020: LIGHT WHIT
+    400022: WHEEL ALUM
+    400024: WHITE BODY
+    400026: WHITE-1
+    2300000: BLACK MATT
+    2300002: BLACK PLAS
+    2300004: BLUE
+    2300006: CAR GLASS
+    2300008: CHROME
+    2300010: GRAY-MATTE
+    2300012: LIGHT GLAS
+    2300014: LIGHT ORAN
+    2300016: LIGHT RED
+    2300018: LIGHT WHIT
+    2300020: WHEEL ALUM
+    2300022: WHITE BODY
+    2300024: WHITE-1
+    3300000: BLACK MATT
+    3300002: BLACK PLAS
+    3300004: BLUE
+    3300006: CAR GLASS
+    3300008: CHROME
+    3300010: GRAY-MATTE
+    3300012: LIGHT GLAS
+    3300014: LIGHT ORAN
+    3300016: LIGHT RED
+    3300018: LIGHT WHIT
+    3300020: WHEEL ALUM
+    3300022: WHITE BODY
+    3300024: WHITE-1
+    4300000: BLACK MATT
+    4300002: BLACK PLAS
+    4300004: BLUE
+    4300006: CAR GLASS
+    4300008: CHROME
+    4300010: GRAY-MATTE
+    4300012: LIGHT GLAS
+    4300014: LIGHT ORAN
+    4300016: LIGHT RED
+    4300018: LIGHT WHIT
+    4300020: WHEEL ALUM
+    4300022: WHITE BODY
+    4300024: WHITE-1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .949999988
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

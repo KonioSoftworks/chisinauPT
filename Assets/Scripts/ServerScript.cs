@@ -5,7 +5,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-public class ServerScript : MonoBehaviour {
+public class ServerScript {
 
 	public void save(string nickname,int score){
 		var request = (HttpWebRequest)WebRequest.Create("http://litenews.tk/chisinaupt/addscore.php");

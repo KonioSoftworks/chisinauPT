@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour {
 	private bool isMoving = false;
 
 	//
-	string user = " Konio ";
+	string user = "Konio";
 
 
 	// GUI
@@ -62,12 +62,6 @@ public class PlayerController : MonoBehaviour {
 	CanvasGroup canvas2;
 	List<CanvasGroup> canvasGroups;
 	ServerScript server;
-
-	//FMOD
-
-	//FMOD.Studio.EventInstance Engine;
-	//FMOD.Studio.ParameterInstance EngineRPM;
-	//FMOD.Studio.ParameterInstance EngineLoad;
 
 
 	void Start() {
@@ -88,12 +82,6 @@ public class PlayerController : MonoBehaviour {
 		canvasGroups[0].alpha = 0f;
 		canvasGroups[1].alpha = 0f;
 	
-
-		//FMOD
-		//Engine = FMOD_StudioSystem.instance.GetEvent ("event:/v2");
-		//Engine.getParameter ("RPM", out EngineRPM);
-		//Engine.getParameter ("Load",out EngineLoad);
-		//Engine.start();
 	}
 
 	void Save(){
@@ -135,7 +123,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void OnGUI(){
-		speed.text = "Speed: " + (Mathf.Round(getVelocity()* 3.6f)).ToString() + " km/h";
+		speed.text = "Speed: " + (Mathf.Round(getVelocity()* 2.8f)).ToString() + " km/h"; //speed, to be more realistic
 		// Game Paused
 		if(isPaused){
 			isPaused = false;
@@ -186,17 +174,20 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if(gas == 1 && brake == 0){
-			rpm += Time.deltaTime * hp * gas * 6f;
+			rpm += Time.deltaTime * (10*hp - gear*20) * gas;
 			rpm = Mathf.Min (maxRpm,rpm);
 		}
 		if(rpm == maxRpm && gear < GearRatios.Count-1){
 			gear++;
 			rpm = getRpmByVelocity() + 0.01f;
+			audio.Stop();
+			audio.PlayDelayed(0.1f);
 		}
 		if(rpm == minRpm && gear > 0){
 			gear--;
 			rpm = getRpmByVelocity() - 0.01f;
-			//Engine.stop();
+			audio.Stop();
+			audio.PlayDelayed(0.1f);
 		}
 
 		if(Input.GetKeyDown("left")){
@@ -214,8 +205,7 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKeyUp("left") || Input.GetKeyUp("right"))
 			pressed = false;
 		rigidbody.velocity = new Vector3(0,0,getVelocity());
-		//EngineRPM.setValue(rpm);
-		//EngineLoad.setValue(gear * (1/GearRatios.Count));
+		audio.pitch = 1 + (rpm/maxRpm);
 	}
 
 	public void move(int x) {
