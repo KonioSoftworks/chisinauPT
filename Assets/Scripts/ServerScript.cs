@@ -24,8 +24,6 @@ public class ServerScript {
 		}
 		
 		var response = (HttpWebResponse)request.GetResponse();
-		
-		var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
 	}
 
 	public void register(){

@@ -21,7 +21,6 @@ public class TrafficController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		int nr = Random.Range(minCarNum,maxCarNum);
 		for(int i=0;i < 4;i++){
 			generateCar(i,minRenderDistance+Random.Range(0.0f,15.0f));
 		}

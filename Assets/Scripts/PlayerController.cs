@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour {
 	public float maxRpm;
 
 	public float wheelRadius;
-	public GUIText score_text;
-	public GUIText speed;
+	//public GUIText score_text;
+	//public GUIText speed;
 
 	public float hp;
 
@@ -31,8 +31,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Player Data -> To Save
 
-	public int money;
-	public int car;
+	public int money = 0;
 
 	//position on road
 
@@ -45,32 +44,26 @@ public class PlayerController : MonoBehaviour {
 
 	private float[] positions = new float[]{-5f,-1.8f,1.8f,5f};
 
-	private float pase;
-	private float delta = 1f;
-
 	private bool isMoving = false;
-
-	//
-	string user = "Konio";
-
-
+	private bool saved = false;
+	
 	// GUI
-	float posx_resume = Screen.width / 2 -50;
-	float posy_resume = Screen.height / 2 - 20;
-	float posy_exit = Screen.height / 2 + 50;
+
 	CanvasGroup canvas;
 	CanvasGroup canvas2;
 	List<CanvasGroup> canvasGroups;
-	ServerScript server;
 
+	//main controller
+	GameObject mainController;
+	Loader loader;
 
 	void Start() {
-		server = new ServerScript();
+		mainController = GameObject.FindGameObjectWithTag("MainController");
+		loader = mainController.GetComponent<Loader>();
 		Time.timeScale  = 1;
 		rpm = minRpm;
 		gear = 0;
 		money = 0;
-		Load();
 		canvas = new CanvasGroup();
 		canvas = GameObject.FindObjectOfType<CanvasGroup>();
 		canvas.alpha = 0f;
@@ -81,66 +74,41 @@ public class PlayerController : MonoBehaviour {
 		canvasGroups = GameObject.FindObjectsOfType<CanvasGroup>().ToList();
 		canvasGroups[0].alpha = 0f;
 		canvasGroups[1].alpha = 0f;
-	
 	}
 
-	void Save(){
-		BinaryFormatter b = new BinaryFormatter();
-		FileStream file = File.Create(Application.persistentDataPath + "/playerData.dat");
-		PlayerData data = new PlayerData();
-		data.money = money;
-		data.car = car;
-		b.Serialize(file, data);
-		file.Close();
-	}
-
-	 void Load(){
-		if(File.Exists(Application.persistentDataPath + "/playerData.dat")){
-			BinaryFormatter b = new BinaryFormatter();
-			FileStream file = File.Open(Application.persistentDataPath +"/playerData.dat", FileMode.Open);
-			PlayerData data = (PlayerData)b.Deserialize(file);
-			money = data.money;
-			car = data.car;
-			file.Close();
+	public void Save(){
+		if(!saved){
+			loader.Died(money);
+			money = 0;
+			saved = true;
 		}
 	}
-	
+
 	public void Resume(){
 		isPaused = false;
 		Time.timeScale = 1;
-		//canvas.alpha = 0f;
 		canvasGroups[1].alpha = 0f;
 	}
 
 	public void Exit(){
 		Application.LoadLevel("menu");
-		server.save("Konio", money);
-	}
-	public void Retry(){
-		Application.LoadLevel("scene");
-		server.save("Konio", money);
-
+		Save();
 	}
 	
 	void OnGUI(){
-		speed.text = "Speed: " + (Mathf.Round(getVelocity()* 2.8f)).ToString() + " km/h"; //speed, to be more realistic
-		// Game Paused
 		if(isPaused){
 			isPaused = false;
 			Time.timeScale = 0;
 			//canvas.alpha = 1f;
 			canvasGroups[1].alpha = 1f;
-			
 		}
 		// Game Over
 		if(gameOver){
-			//Engine.stop (0);
-			//Engine.release ();
 			Time.timeScale = 0;
 			isPaused = false;
 			//canvas2.alpha = 1f;
 			canvasGroups[0].alpha = 1f;
-
+			Save();
 		}
 
 	}
@@ -152,7 +120,7 @@ public class PlayerController : MonoBehaviour {
 				Time.timeScale = 0;
 				//canvas.alpha = 0f;
 				canvasGroups[1].alpha = 1f;
-				Save ();
+				//Save ();
 			}else{ 
 				Time.timeScale = 1;
 				isPaused = false;
@@ -269,7 +237,6 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "Coins"){
 			money += 3;
-			score_text.text = "Money : " + money.ToString() + " lei";
 			other.gameObject.SetActive(false);
 		}
 		if(other.gameObject.tag == "Car"){
@@ -287,8 +254,3 @@ public class PlayerController : MonoBehaviour {
 	
 }
 
-[System.Serializable]
-class PlayerData{
-	public int money;
-	public int car;
-}
