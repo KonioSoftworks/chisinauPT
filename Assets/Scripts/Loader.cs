@@ -11,9 +11,10 @@ public class Loader : MonoBehaviour {
 	private GameObject bus;
 	private PlayerController pc;
 
+	public Transport transport;
+
 	public void loadAndExecute() {
 		saveController = new PlayerSave();
-		saveController.data.bus = 1;
 		if(!buses[saveController.data.bus])
 			saveController.data.bus = 0;
 		spawnBus();
@@ -25,23 +26,23 @@ public class Loader : MonoBehaviour {
 		if(bus1){			
 			Destroy(bus1);
 		}
-		bus = (GameObject)Instantiate(buses[saveController.data.bus].car,position,Quaternion.Euler(0,0,0));
+		transport = buses [Random.Range (0, buses.Count)];
+		GameObject selBus = transport.car;
+		bus = (GameObject)Instantiate(selBus,position,selBus.transform.rotation);
 		pc = bus.GetComponent<PlayerController>();
 	}
 
-	void OnLevelWasLoaded(int level) {
-		if (level == 1){
-			GameObject mainController = GameObject.FindGameObjectWithTag("MainController");
-			if(!mainController)
-				Debug.Log("Cannot find maincontroller");
-			Loader loader = mainController.GetComponent<Loader>();
-			loader.loadAndExecute();
-		}
+	public void Start(){
+		GameObject mainController = GameObject.FindGameObjectWithTag("MainController");
+		if(!mainController)
+			Debug.Log("Cannot find maincontroller");
+		Loader loader = mainController.GetComponent<Loader>();
+		loader.loadAndExecute();
 	}
 
 	void sendDataToServer(int score){
 		ServerScript server = new ServerScript();
-		server.save(saveController.data.name,score);
+		//server.save(saveController.data.name,score);
 	}
 
 	public void Died(int score){

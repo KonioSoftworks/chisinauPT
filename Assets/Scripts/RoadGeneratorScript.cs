@@ -36,6 +36,14 @@ public class RoadGeneratorScript : MonoBehaviour {
 		Road = GameObject.FindGameObjectWithTag("Road");		
 		buildings = new List<GameObject>();
 
+		//loading transport properties
+
+		GameObject MC = GameObject.FindGameObjectWithTag ("MainController");
+		if (MC) {
+			Loader l = MC.GetComponent<Loader>();
+			maxCoinsInRow = l.transport.coinFreq;
+		}
+
 		for(int i=0;i < renderedPlanes;i++){
 			createNewPlane();
 		}
@@ -44,6 +52,7 @@ public class RoadGeneratorScript : MonoBehaviour {
 			CoinRow(CoinsInRow,Random.Range(0,4));
 		}
 		renderBuildings();
+
 	}
 
 	void Update () {

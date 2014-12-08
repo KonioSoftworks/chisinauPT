@@ -75,7 +75,7 @@ Transform:
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -84.730629, y: 60.7328873, z: -130.822708}
-  m_LocalScale: {x: 20, y: 15, z: 20}
+  m_LocalScale: {x: 25, y: 15, z: 20}
   m_Children:
   - {fileID: 400004}
   - {fileID: 400000}
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceFromRoad: 3
-  distanceFromOthers: 25
+  distanceFromOthers: 22
   heightFromRoad: 7.9000001
 --- !u!1001 &100100000
 Prefab:

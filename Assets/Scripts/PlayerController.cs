@@ -46,7 +46,9 @@ public class PlayerController : MonoBehaviour {
 
 	private bool isMoving = false;
 	private bool saved = false;
-	
+
+	public float rotationAngle = 20f;
+
 	// GUI
 
 	CanvasGroup canvas;
@@ -56,6 +58,8 @@ public class PlayerController : MonoBehaviour {
 	//main controller
 	GameObject mainController;
 	Loader loader;
+
+	Quaternion initRot;
 
 	void Start() {
 		mainController = GameObject.FindGameObjectWithTag("MainController");
@@ -74,6 +78,7 @@ public class PlayerController : MonoBehaviour {
 		canvasGroups = GameObject.FindObjectsOfType<CanvasGroup>().ToList();
 		canvasGroups[0].alpha = 0f;
 		canvasGroups[1].alpha = 0f;
+		initRot = transform.rotation;
 	}
 
 	public void Save(){
@@ -199,27 +204,27 @@ public class PlayerController : MonoBehaviour {
 
 		float units = 0.13f * coefficient * 60 * Time.deltaTime;
 		float angle = 20f * coefficient;
-		float angle2 = 20f * coefficient;
+		float angle2 = rotationAngle * coefficient;
 		float k = (band > previousBand) ? 1 : -1;
 
 		if (band == previousBand){
-			transform.rotation = Quaternion.Euler(0,0,0);
+			transform.rotation = initRot;
 		} else {
 			float radius = angle / (Mathf.Abs(newPositions[band] - newPositions[previousBand])/units);
 			float radius2 = angle2 / (Mathf.Abs(newPositions[band] - newPositions[previousBand])/units);
 			if (k > 0) {
 				float mediumX = (newPositions[band] + newPositions[previousBand])/2f;
 				if (x - positions[0] < mediumX){
-					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y + radius,transform.rotation.eulerAngles.z + radius2);
+					transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x,transform.rotation.eulerAngles.y + radius,transform.rotation.eulerAngles.z + radius2);
 				}else{	
-					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y - radius,transform.rotation.eulerAngles.z - radius2);
+					transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x,transform.rotation.eulerAngles.y - radius,transform.rotation.eulerAngles.z - radius2);
 				}
 			} else {
 				float mediumX = (newPositions[previousBand] + newPositions[band])/2f;	
 				if (x - positions[0] < mediumX){				
-					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y + radius,transform.rotation.eulerAngles.z + radius2);
+					transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x,transform.rotation.eulerAngles.y + radius,transform.rotation.eulerAngles.z + radius2);
 				}else{			
-					transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y - radius,transform.rotation.eulerAngles.z - radius2);
+					transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x,transform.rotation.eulerAngles.y - radius,transform.rotation.eulerAngles.z - radius2);
 				}
 			}
 		}
@@ -229,7 +234,7 @@ public class PlayerController : MonoBehaviour {
 		if (Mathf.Abs (x - positions [band]) < 0.2f) {
 			Vector3 Pos = new Vector3 (positions[band], transform.position.y, transform.position.z);
 			transform.position = Pos;
-			transform.rotation = new Quaternion(0,0,0,0);
+			transform.rotation = initRot;
 			isMoving = false;
 		}
 	}
