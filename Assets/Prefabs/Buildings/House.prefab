@@ -82,8 +82,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3ceb92da8fe8344bbc0a58bdb11801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceFromRoad: 2
-  distanceFromOthers: 30
+  distanceFromRoad: 3
+  distanceFromOthers: 31
   heightFromRoad: 9.79857445
 --- !u!1001 &100100000
 Prefab:

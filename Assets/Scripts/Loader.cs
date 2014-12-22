@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Loader : MonoBehaviour {
 	
 	public List<Transport> buses;
-
+		
 	private PlayerSave saveController;
 
 	private GameObject bus;
@@ -30,6 +30,7 @@ public class Loader : MonoBehaviour {
 		GameObject selBus = transport.car;
 		bus = (GameObject)Instantiate(selBus,position,selBus.transform.rotation);
 		pc = bus.GetComponent<PlayerController>();
+		pc.coinValue = transport.coinValue;
 	}
 
 	public void Start(){

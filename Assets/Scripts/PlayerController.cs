@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour {
 
 	public float rotationAngle = 20f;
 
+	public float brakeTorque = 4000f;
+	public int coinValue = 3;
+
 	// GUI
 
 	CanvasGroup canvas;
@@ -142,7 +145,7 @@ public class PlayerController : MonoBehaviour {
 		float brake = -1 * Mathf.Clamp(Input.GetAxis("Vertical"), -1, 0);
 
 		if(brake != 0){
-			rpm -= Time.deltaTime * 2300f;
+			rpm -= Time.deltaTime * brakeTorque;
 			rpm = Mathf.Max (minRpm,rpm);
 		}
 
@@ -241,11 +244,11 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "Coins"){
-			money += 3;
+			money += coinValue;
 			other.gameObject.SetActive(false);
 		}
 		if(other.gameObject.tag == "Car"){
-				gameOver = true;
+			gameOver = true;
 		}
 	}
 

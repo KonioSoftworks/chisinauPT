@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceFromRoad: 3
-  distanceFromOthers: 22
+  distanceFromOthers: 20
   heightFromRoad: 7.9000001
 --- !u!1001 &100100000
 Prefab:

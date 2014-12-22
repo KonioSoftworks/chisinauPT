@@ -52,7 +52,7 @@ public class TrafficController : MonoBehaviour {
 		}
 		if(rareTime > 5){
 			if(rareCars.Count > 0 && Random.Range(1,8) == 1)
-				generateRareCar(Random.Range(0,4),player.transform.position.z + minRenderDistance + Random.Range(10.0f,20.0f));
+				generateRareCar(Random.Range(0,4),player.transform.position.z + minRenderDistance + Random.Range(-10.0f,20.0f));
 			rareTime = 0;
 		}
 	}

@@ -8,6 +8,7 @@ public class RoadGeneratorScript : MonoBehaviour {
 
 	private GameObject Road;
 	public GameObject Coin;
+	public GameObject Coin2;
 
 	public int renderedPlanes = 15;
 
@@ -35,6 +36,10 @@ public class RoadGeneratorScript : MonoBehaviour {
 		Vector3 carV = GameObject.FindGameObjectWithTag("Player").transform.position;
 		Road = GameObject.FindGameObjectWithTag("Road");		
 		buildings = new List<GameObject>();
+		// loading coin
+
+		if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().coinValue == 2)
+			Coin = Coin2;
 
 		//loading transport properties
 
@@ -122,7 +127,7 @@ public class RoadGeneratorScript : MonoBehaviour {
 			BuildingController objController = (BuildingController) obj.GetComponent(typeof(BuildingController));
 			Vector3 position = new Vector3(n*pos+pos*objController.distanceFromRoad,objController.heightFromRoad,sideDistance);			
 			buildings.Add((GameObject)Instantiate(obj,position,obj.transform.rotation));
-			sideDistance += objController.distanceFromOthers + Random.Range(0,10);
+			sideDistance += objController.distanceFromOthers;
 		}
 	}
 
