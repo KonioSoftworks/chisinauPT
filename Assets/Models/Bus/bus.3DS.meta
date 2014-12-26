@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: 5063afeb1bf43454aa5d9b934d3f0f59
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: backlght
+    100002: black
+    100004: body
+    100006: body_blk
+    100008: //RootNode
+    100010: chrome
+    100012: Dummy
+    100014: glass
+    100016: glassblk
+    100018: Group01
+    100020: headlght
+    100022: mirror
+    100024: nplate
+    100026: plastic
+    100028: rearlght
+    100030: text
+    100032: turnlght
+    100034: tyre
+    100036: wheel
+    400000: backlght
+    400002: black
+    400004: body
+    400006: body_blk
+    400008: //RootNode
+    400010: chrome
+    400012: Dummy
+    400014: glass
+    400016: glassblk
+    400018: Group01
+    400020: headlght
+    400022: mirror
+    400024: nplate
+    400026: plastic
+    400028: rearlght
+    400030: text
+    400032: turnlght
+    400034: tyre
+    400036: wheel
+    2300000: backlght
+    2300002: black
+    2300004: body
+    2300006: body_blk
+    2300008: chrome
+    2300010: glass
+    2300012: glassblk
+    2300014: headlght
+    2300016: mirror
+    2300018: nplate
+    2300020: plastic
+    2300022: rearlght
+    2300024: text
+    2300026: turnlght
+    2300028: tyre
+    2300030: wheel
+    3300000: backlght
+    3300002: black
+    3300004: body
+    3300006: body_blk
+    3300008: chrome
+    3300010: glass
+    3300012: glassblk
+    3300014: headlght
+    3300016: mirror
+    3300018: nplate
+    3300020: plastic
+    3300022: rearlght
+    3300024: text
+    3300026: turnlght
+    3300028: tyre
+    3300030: wheel
+    4300000: backlght
+    4300002: black
+    4300004: body
+    4300006: body_blk
+    4300008: chrome
+    4300010: glass
+    4300012: glassblk
+    4300014: headlght
+    4300016: mirror
+    4300018: nplate
+    4300020: plastic
+    4300022: rearlght
+    4300024: text
+    4300026: turnlght
+    4300028: tyre
+    4300030: wheel
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

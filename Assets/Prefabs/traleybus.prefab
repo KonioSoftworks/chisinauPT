@@ -194,9 +194,9 @@ MonoBehaviour:
   - 3
   axleRatio: 3
   minRpm: 1000
-  maxRpm: 7000
+  maxRpm: 8000
   wheelRadius: .5
-  hp: 200
+  hp: 300
   converterRatio: 3
   money: 0
   rotationAngle: 5

@@ -1,17 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using UnityEngine.UI;
 
 public class Loader : MonoBehaviour {
 	
 	public List<Transport> buses;
 		
-	private PlayerSave saveController;
+	public PlayerSave saveController;
 
 	private GameObject bus;
 	private PlayerController pc;
 
 	public Transport transport;
+
+	private int score = 0;
+
+	public GameObject deadText;
 
 	public void loadAndExecute() {
 		saveController = new PlayerSave();
@@ -26,7 +32,7 @@ public class Loader : MonoBehaviour {
 		if(bus1){			
 			Destroy(bus1);
 		}
-		transport = buses [Random.Range (0, buses.Count)];
+		transport = buses [saveController.data.bus];
 		GameObject selBus = transport.car;
 		bus = (GameObject)Instantiate(selBus,position,selBus.transform.rotation);
 		pc = bus.GetComponent<PlayerController>();
@@ -34,23 +40,30 @@ public class Loader : MonoBehaviour {
 	}
 
 	public void Start(){
-		GameObject mainController = GameObject.FindGameObjectWithTag("MainController");
-		if(!mainController)
-			Debug.Log("Cannot find maincontroller");
-		Loader loader = mainController.GetComponent<Loader>();
-		loader.loadAndExecute();
+		Time.timeScale = 1;
+		if(Application.loadedLevel == 1)
+			loadAndExecute();
 	}
 
-	void sendDataToServer(int score){
+	void sendDataToServer(int scoreValue){
+		score = scoreValue;
+		Thread t = new Thread(threadSendData);
+		t.Start();
+	}
+
+	void threadSendData(){
 		ServerScript server = new ServerScript();
-		//server.save(saveController.data.name,score);
+		server.save(saveController.data.name,score);
 	}
 
 	public void Died(int score){
 		saveController.data.money += score;
 		saveController.Save();
+		pc.audio.Stop();
+		if(deadText){
+			deadText.GetComponent<Text>().text = "Whoops...\nYour earned "+score+" lei";
+		}
 		sendDataToServer(score);
-		Debug.Log("Saved and sent to server");
 	}
 
 	public void resumeButton(){

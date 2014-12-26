@@ -17,17 +17,15 @@ public class ServerScript {
 		request.Method = "POST";
 		request.ContentType = "application/x-www-form-urlencoded";
 		request.ContentLength = data.Length;
-		
+
 		using (var stream = request.GetRequestStream())
 		{
 			stream.Write(data, 0, data.Length);
 		}
-		
-		var response = (HttpWebResponse)request.GetResponse();
 	}
 
 	public void register(){
 		var client = new WebClient();
-		client.DownloadString("http://litenews.tk/chisinaupt/adduser.php");
+		client.DownloadStringAsync(new Uri("http://litenews.tk/chisinaupt/adduser.php"));
 	}
 }
